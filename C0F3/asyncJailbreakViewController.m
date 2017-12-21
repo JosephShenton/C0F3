@@ -49,6 +49,7 @@ typedef CFStringRef (*w)(int e);
 //            }
             [self openScheme:@"cydia://"];
             NSLog(@" ♫ KPP never bothered me anyway... ♫ ");
+            [self performSegueWithIdentifier:@"async_jailbroken" sender:self];
 //            system("killall SpringBoard");
             
             //    [@"test" writeToFile:@"/testingfiles" atomically:YES encoding:NSUTF8StringEncoding error:NULL];

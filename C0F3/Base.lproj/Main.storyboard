@@ -611,6 +611,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hCa-Re-bL4"/>
                     </view>
+                    <connections>
+                        <segue destination="Ax0-Qz-6ca" kind="custom" identifier="async_jailbroken" customClass="forwardSegue" id="cNn-l8-NNh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CwX-aF-A2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -679,12 +682,72 @@
             </objects>
             <point key="canvasLocation" x="-562" y="836"/>
         </scene>
+        <!--async_wake Jailbroken-->
+        <scene sceneID="UIa-Z7-Fju">
+            <objects>
+                <viewController storyboardIdentifier="async_jailbroken" title="async_wake Jailbroken" id="Ax0-Qz-6ca" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RCF-nI-dkr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="async_wake | 11.0 - 11.1.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUC-YO-X1A">
+                                <rect key="frame" x="16" y="562" width="343" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C0F3 has successfully jailbroken your device!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YVJ-Z2-ZIk">
+                                <rect key="frame" x="16" y="60.5" width="343" height="132.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="37"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C0F3 Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Zt3-AG-XUh">
+                                <rect key="frame" x="97" y="225" width="181" height="237"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="237" id="32Z-yh-iwx"/>
+                                    <constraint firstAttribute="width" secondItem="Zt3-AG-XUh" secondAttribute="height" multiplier="181:237" id="E9N-ju-h4K"/>
+                                    <constraint firstAttribute="width" constant="181" id="aFD-3A-kGQ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1j-lo-lUa">
+                                <rect key="frame" x="16" y="602" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                <state key="normal" title="Credits"/>
+                                <connections>
+                                    <segue destination="chu-Or-msC" kind="custom" customClass="forwardSegue" id="U6r-wf-k92"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q1j-lo-lUa" firstAttribute="top" secondItem="YUC-YO-X1A" secondAttribute="bottom" constant="18" id="2iD-aC-w2o"/>
+                            <constraint firstItem="K7u-wF-Lp7" firstAttribute="trailing" secondItem="q1j-lo-lUa" secondAttribute="trailing" constant="16" id="GJS-G1-ib3"/>
+                            <constraint firstItem="YUC-YO-X1A" firstAttribute="leading" secondItem="K7u-wF-Lp7" secondAttribute="leading" constant="16" id="PiN-3m-1v4"/>
+                            <constraint firstItem="Zt3-AG-XUh" firstAttribute="centerY" secondItem="K7u-wF-Lp7" secondAttribute="centerY" id="X8a-R4-59Q"/>
+                            <constraint firstItem="YVJ-Z2-ZIk" firstAttribute="top" secondItem="K7u-wF-Lp7" secondAttribute="top" constant="40.5" id="bub-z1-EFi"/>
+                            <constraint firstItem="K7u-wF-Lp7" firstAttribute="bottom" secondItem="YUC-YO-X1A" secondAttribute="bottom" constant="83" id="eG1-pt-PL2"/>
+                            <constraint firstItem="Zt3-AG-XUh" firstAttribute="centerX" secondItem="K7u-wF-Lp7" secondAttribute="centerX" id="fTV-Eq-TNa"/>
+                            <constraint firstItem="q1j-lo-lUa" firstAttribute="leading" secondItem="K7u-wF-Lp7" secondAttribute="leading" constant="16" id="hCF-hH-GcO"/>
+                            <constraint firstItem="K7u-wF-Lp7" firstAttribute="trailing" secondItem="YUC-YO-X1A" secondAttribute="trailing" constant="16" id="lmT-64-EzA"/>
+                            <constraint firstItem="K7u-wF-Lp7" firstAttribute="trailing" secondItem="YVJ-Z2-ZIk" secondAttribute="trailing" constant="16" id="muB-ra-EYn"/>
+                            <constraint firstItem="YVJ-Z2-ZIk" firstAttribute="leading" secondItem="K7u-wF-Lp7" secondAttribute="leading" constant="16" id="rrD-3n-mhQ"/>
+                            <constraint firstItem="K7u-wF-Lp7" firstAttribute="bottom" secondItem="q1j-lo-lUa" secondAttribute="bottom" constant="35" id="yTf-5X-DfL"/>
+                            <constraint firstItem="Zt3-AG-XUh" firstAttribute="top" secondItem="YVJ-Z2-ZIk" secondAttribute="bottom" constant="32" id="ydm-6d-TWh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K7u-wF-Lp7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q2l-fg-FyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="-555.47226386806597"/>
+        </scene>
     </scenes>
     <resources>
         <image name="C0F3 Logo" width="433" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qYT-mq-8Sg"/>
+        <segue reference="U6r-wf-k92"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.95294117647058818" green="0.19215686274509802" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
