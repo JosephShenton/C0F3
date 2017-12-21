@@ -7,6 +7,174 @@
 //
 
 #include "fun.h"
+#include "kcall.h"
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <errno.h>
+
+// export PATH="$BOOTSTRAP_PREFIX/usr/local/bin:$BOOTSTRAP_PREFIX/usr/sbin:$BOOTSTRAP_PREFIX/usr/bin:$BOOTSTRAP_PREFIX/sbin:$BOOTSTRAP_PREFIX/bin"
+#define BOOTSTRAP_PREFIX "bootstrap"
+
+int cp(const char *to, const char *from)
+{
+    int fd_to, fd_from;
+    char buf[4096];
+    ssize_t nread;
+    int saved_errno;
+    
+    fd_from = open(from, O_RDONLY);
+    if (fd_from < 0)
+        return -1;
+    
+    fd_to = open(to, O_WRONLY | O_CREAT | O_EXCL, 0666);
+    if (fd_to < 0)
+        goto out_error;
+    
+    while (nread = read(fd_from, buf, sizeof buf), nread > 0)
+    {
+        char *out_ptr = buf;
+        ssize_t nwritten;
+        
+        do {
+            nwritten = write(fd_to, out_ptr, nread);
+            
+            if (nwritten >= 0)
+            {
+                nread -= nwritten;
+                out_ptr += nwritten;
+            }
+            else if (errno != EINTR)
+            {
+                goto out_error;
+            }
+        } while (nread > 0);
+    }
+    
+    if (nread == 0)
+    {
+        if (close(fd_to) < 0)
+        {
+            fd_to = -1;
+            goto out_error;
+        }
+        close(fd_from);
+        
+        /* Success! */
+        return 0;
+    }
+    
+out_error:
+    saved_errno = errno;
+    
+    close(fd_from);
+    if (fd_to >= 0)
+        close(fd_to);
+    
+    errno = saved_errno;
+    return -1;
+}
+
+
+#include <CommonCrypto/CommonDigest.h>
+
+typedef struct __BlobIndex {
+    uint32_t type;                                  /* type of entry */
+    uint32_t offset;                                /* offset of entry */
+} CS_BlobIndex;
+
+typedef struct __SuperBlob {
+    uint32_t magic;                                 /* magic number */
+    uint32_t length;                                /* total length of SuperBlob */
+    uint32_t count;                                 /* number of index entries following */
+    CS_BlobIndex index[];                   /* (count) entries */
+    /* followed by Blobs in no particular order as indicated by offsets in index */
+} CS_SuperBlob;
+
+
+uint32_t swap_uint32( uint32_t val )
+{
+    val = ((val << 8) & 0xFF00FF00 ) | ((val >> 8) & 0xFF00FF );
+    return (val << 16) | (val >> 16);
+}
+
+void getSHA256inplace(const uint8_t* code_dir, uint8_t *out) {
+    if (code_dir == NULL) {
+        printf("NULL passed to getSHA256inplace!\n");
+        return;
+    }
+    uint32_t* code_dir_int = (uint32_t*)code_dir;
+    
+    uint32_t realsize = 0;
+    for (int j = 0; j < 10; j++) {
+        if (swap_uint32(code_dir_int[j]) == 0xfade0c02) {
+            realsize = swap_uint32(code_dir_int[j+1]);
+            code_dir += 4*j;
+        }
+    }
+    //    printf("%08x\n", realsize);
+    
+    CC_SHA256(code_dir, realsize, out);
+}
+
+uint8_t *getSHA256(const uint8_t* code_dir) {
+    uint8_t *out = malloc(CC_SHA256_DIGEST_LENGTH);
+    getSHA256inplace(code_dir, out);
+    return out;
+}
+
+#include <mach-o/loader.h>
+uint8_t *getCodeDirectory(const char* name) {
+    // Assuming it is a macho
+    
+    FILE* fd = fopen(name, "r");
+    
+    uint32_t magic;
+    fread(&magic, sizeof(magic), 1, fd);
+    fseek(fd, 0, SEEK_SET);
+    
+    long off;
+    int ncmds;
+    
+    if (magic == MH_MAGIC_64) {
+        //        printf("%s is 64bit macho\n", name);
+        struct mach_header_64 mh64;
+        fread(&mh64, sizeof(mh64), 1, fd);
+        off = sizeof(mh64);
+        ncmds = mh64.ncmds;
+    } else if (magic == MH_MAGIC) {
+        struct mach_header mh;
+        //        printf("%s is 32bit macho\n", name);
+        fread(&mh, sizeof(mh), 1, fd);
+        off = sizeof(mh);
+        ncmds = mh.ncmds;
+    } else {
+        printf("%s is not a macho! (or has foreign endianness?) (magic: %x)\n", name, magic);
+        return NULL;
+    }
+    
+    for (int i = 0; i < ncmds; i++) {
+        struct load_command cmd;
+        fseek(fd, off, SEEK_SET);
+        fread(&cmd, sizeof(struct load_command), 1, fd);
+        if (cmd.cmd == LC_CODE_SIGNATURE) {
+            uint32_t off_cs;
+            fread(&off_cs, sizeof(uint32_t), 1, fd);
+            uint32_t size_cs;
+            fread(&size_cs, sizeof(uint32_t), 1, fd);
+            //            printf("found CS in '%s': %d - %d\n", name, off_cs, size_cs);
+            
+            uint8_t *cd = malloc(size_cs);
+            fseek(fd, off_cs, SEEK_SET);
+            fread(cd, size_cs, 1, fd);
+            return cd;
+        } else {
+            //            printf("'%s': loadcmd %02x\n", name, cmd.cmd);
+            off += cmd.cmdsize;
+        }
+    }
+    return NULL;
+}
 
 unsigned offsetof_p_pid = 0x10;               // proc_t::p_pid
 unsigned offsetof_task = 0x18;                // proc_t::task
