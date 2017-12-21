@@ -40,7 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7C31C8741FEB9DF5007CFCED /* tar */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = tar; sourceTree = "<group>"; };
 		7CC525111FEB5A4D00AD1614 /* fateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fateViewController.h; sourceTree = "<group>"; };
 		7CC525121FEB5A4D00AD1614 /* fateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fateViewController.m; sourceTree = "<group>"; };
 		7CC525151FEB5BEC00AD1614 /* forwardSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forwardSegue.h; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		7C2CE4F11FEB458300783C10 /* ASYNC_WAKE */ = {
 			isa = PBXGroup;
 			children = (
-				7C31C8741FEB9DF5007CFCED /* tar */,
 				7CC525301FEB7E3400AD1614 /* binpack.tar */,
 				7CC5252F1FEB7E3300AD1614 /* cydia.tar */,
 				BC71C3741FE60FF0004C7C42 /* bootstrap.dmg */,
