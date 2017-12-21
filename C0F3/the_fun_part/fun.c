@@ -450,70 +450,35 @@ do { \
 //	mkdir("/Library/LaunchDaemons", 777);
 //	cp("/Library/LaunchDaemons/test_fsigned.plist", plistPath2());
 
-//    mkdir("/" BOOTSTRAP_PREFIX, 0777);
-//    const char *tar = "/" BOOTSTRAP_PREFIX "/tar";
-//    cp(tar, progname("tar"));
-//    chmod(tar, 0777);
-//    inject_trusts(1, (const char **)&(const char*[]){tar});
-////    inject_trusts(1, &tar);
-//
-//    int rv;
-//
-//    rv = startprog(kern_ucred, tar, (char **)&(const char*[]){ tar, "-xpf", progname("cydia.tar"), "-C", "/", NULL });
-//    inject_trusts(1, (const char **)&(const char*[]){"/Applications/Cydia.app/Cydia"});
-//
-//    rv = startprog(kern_ucred, tar, (char **)&(const char*[]){ tar, "-xpf", progname("binpack.tar"), "-C", "/" BOOTSTRAP_PREFIX, NULL });
-//    unlink(tar);
-//
-//    int process_binlist(const char *path);
-//    rv = process_binlist("/" BOOTSTRAP_PREFIX "/binlist.txt");
-//
-//    const char *uicache = "/" BOOTSTRAP_PREFIX "/usr/local/bin/uicache";
-//    rv = startprog(kern_ucred, uicache, (char **)&(const char*[]){ uicache, NULL });
-//
-//    if (rv == 0) {
-//        printf("Dropbear would be up soon\n");
-//        printf("Please run after SSH: \n --- \n");
-//        printf("BOOTSTRAP_PREFIX=\"/" BOOTSTRAP_PREFIX "\"\n");
-//        printf("export PATH=\"$BOOTSTRAP_PREFIX/usr/local/bin:$BOOTSTRAP_PREFIX/usr/sbin:$BOOTSTRAP_PREFIX/usr/bin:$BOOTSTRAP_PREFIX/sbin:$BOOTSTRAP_PREFIX/bin\"\n");
-//        printf(" --- \n");
-//        const char *dbear = "/" BOOTSTRAP_PREFIX "/usr/local/bin/dropbear";
-//        rv = startprog(kern_ucred, dbear, (char **)&(const char*[]){ dbear, "-E", "-m", "-F", "-S", "/" BOOTSTRAP_PREFIX, NULL });
-//    }
-    
-    
-    // COOLSTAR'S
     mkdir("/" BOOTSTRAP_PREFIX, 0777);
     const char *tar = "/" BOOTSTRAP_PREFIX "/tar";
     cp(tar, progname("tar"));
     chmod(tar, 0777);
     inject_trusts(1, (const char **)&(const char*[]){tar});
-    
+//    inject_trusts(1, &tar);
+
     int rv;
-    
-    //rv = startprog(kern_ucred, true, tar, (char **)&(const char*[]){ tar, "-xpf", progname("cydia.tar"), "-C", "/", NULL });
-    //inject_trusts(1, (const char **)&(const char*[]){"/Applications/Cydia.app/Cydia"});
-    
-    rv = startprog(kern_ucred, true, tar, (char **)&(const char*[]){ tar, "-xpf", progname("gnubinpack.tar"), "-C", "/" BOOTSTRAP_PREFIX, NULL }, NULL);
+
+    rv = startprog(kern_ucred, tar, (char **)&(const char*[]){ tar, "-xpf", progname("cydia.tar"), "-C", "/", NULL });
+    inject_trusts(1, (const char **)&(const char*[]){"/Applications/Cydia.app/Cydia"});
+
+    rv = startprog(kern_ucred, tar, (char **)&(const char*[]){ tar, "-xpf", progname("gnubinpack.tar"), "-C", "/" BOOTSTRAP_PREFIX, NULL });
     unlink(tar);
-    
+
     int process_binlist(const char *path);
     rv = process_binlist("/" BOOTSTRAP_PREFIX "/binlist.txt");
-    
+
     const char *uicache = "/" BOOTSTRAP_PREFIX "/usr/local/bin/uicache";
-    rv = startprog(kern_ucred, true, uicache, (char **)&(const char*[]){ uicache, NULL }, NULL);
-    
+    rv = startprog(kern_ucred, uicache, (char **)&(const char*[]){ uicache, NULL });
+
     if (rv == 0) {
         printf("Dropbear would be up soon\n");
-        char *environ[] = {
-            "BOOTSTRAP_PREFIX=/"BOOTSTRAP_PREFIX"",
-            "PATH=/"BOOTSTRAP_PREFIX"/usr/local/bin:/"BOOTSTRAP_PREFIX"/usr/sbin:/"BOOTSTRAP_PREFIX"/usr/bin:/"BOOTSTRAP_PREFIX"/sbin:/"BOOTSTRAP_PREFIX"/bin:/bin:/usr/bin:/sbin",
-            "PS1=\\h:\\w \\u\\$ ",
-            NULL
-        };
-        
+        printf("Please run after SSH: \n --- \n");
+        printf("BOOTSTRAP_PREFIX=\"/" BOOTSTRAP_PREFIX "\"\n");
+        printf("export PATH=\"$BOOTSTRAP_PREFIX/usr/local/bin:$BOOTSTRAP_PREFIX/usr/sbin:$BOOTSTRAP_PREFIX/usr/bin:$BOOTSTRAP_PREFIX/sbin:$BOOTSTRAP_PREFIX/bin\"\n");
+        printf(" --- \n");
         const char *dbear = "/" BOOTSTRAP_PREFIX "/usr/local/bin/dropbear";
-        rv = startprog(kern_ucred, false, dbear, (char **)&(const char*[]){ dbear, "-S", "/" BOOTSTRAP_PREFIX, "-p", "2222", NULL }, &environ);
+        rv = startprog(kern_ucred, dbear, (char **)&(const char*[]){ dbear, "-E", "-m", "-F", "-S", "/" BOOTSTRAP_PREFIX, NULL });
     }
 
 //	sleep(5);
@@ -775,9 +740,9 @@ void filltheshitup(void) {
 }
 
 
-int startprog(uint64_t kern_ucred, bool wait, const char *prog, const char* args[], const char* envp[]) {
+int startprog(uint64_t kern_ucred, const char *prog, const char* args[]) {
     pid_t pd;
-    int rv = posix_spawn(&pd, prog, NULL, NULL, (char**)args, envp);
+    int rv = posix_spawn(&pd, prog, NULL, NULL, (char**)args, NULL);
     printf("spawn '%s': pid=%d\n", prog, pd);
     printf("rv=%d\n", rv);
 
