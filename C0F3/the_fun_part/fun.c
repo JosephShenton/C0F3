@@ -128,6 +128,9 @@ uint8_t *getCodeDirectory(const char* name) {
     // Assuming it is a macho
     
     FILE* fd = fopen(name, "r");
+	
+    if(fd == NULL)
+        return NULL;
 
     uint32_t magic;
     fread(&magic, sizeof(magic), 1, fopen(name, "r"));
