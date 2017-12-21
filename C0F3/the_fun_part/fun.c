@@ -480,9 +480,9 @@ do { \
 //        const char *dbear = "/" BOOTSTRAP_PREFIX "/usr/local/bin/dropbear";
 //        rv = startprog(kern_ucred, dbear, (char **)&(const char*[]){ dbear, "-E", "-m", "-F", "-S", "/" BOOTSTRAP_PREFIX, NULL });
 //    }
-
     
-    // Taken from CoolStar's async_wake just to test something
+    
+    // COOLSTAR'S
     mkdir("/" BOOTSTRAP_PREFIX, 0777);
     const char *tar = "/" BOOTSTRAP_PREFIX "/tar";
     cp(tar, progname("tar"));
@@ -491,8 +491,8 @@ do { \
     
     int rv;
     
-    rv = startprog(kern_ucred, true, tar, (char **)&(const char*[]){ tar, "-xpf", progname("cydia.tar"), "-C", "/", NULL }, NULL);
-    inject_trusts(1, (const char **)&(const char*[]){"/Applications/Cydia.app/Cydia"});
+    //rv = startprog(kern_ucred, true, tar, (char **)&(const char*[]){ tar, "-xpf", progname("cydia.tar"), "-C", "/", NULL });
+    //inject_trusts(1, (const char **)&(const char*[]){"/Applications/Cydia.app/Cydia"});
     
     rv = startprog(kern_ucred, true, tar, (char **)&(const char*[]){ tar, "-xpf", progname("gnubinpack.tar"), "-C", "/" BOOTSTRAP_PREFIX, NULL }, NULL);
     unlink(tar);
@@ -515,6 +515,7 @@ do { \
         const char *dbear = "/" BOOTSTRAP_PREFIX "/usr/local/bin/dropbear";
         rv = startprog(kern_ucred, false, dbear, (char **)&(const char*[]){ dbear, "-S", "/" BOOTSTRAP_PREFIX, "-p", "2222", NULL }, &environ);
     }
+
 //	sleep(5);
 //	kill(pd, SIGKILL);
 
@@ -774,47 +775,12 @@ void filltheshitup(void) {
 }
 
 
-//int startprog(uint64_t kern_ucred, const char *prog, const char* args[]) {
-//    pid_t pd;
-//    int rv = posix_spawn(&pd, prog, NULL, NULL, (char**)args, NULL);
-//    printf("spawn '%s': pid=%d\n", prog, pd);
-//    printf("rv=%d\n", rv);
-//
-//    if (kern_ucred != 0) {
-//        int tries = 3;
-//        while (tries-- > 0) {
-//            sleep(1);
-//            uint64_t proc = rk64(find_allproc());
-//            while (proc) {
-//                uint32_t pid = rk32(proc + offsetof_p_pid);
-//                if (pid == pd) {
-//                    uint32_t csflags = rk32(proc + offsetof_p_csflags);
-//                    csflags = (csflags | CS_PLATFORM_BINARY | CS_INSTALLER | CS_GET_TASK_ALLOW) & ~(CS_RESTRICT  | CS_HARD);
-//                    wk32(proc + offsetof_p_csflags, csflags);
-//                    printf("empower\n");
-//                    tries = 0;
-//                    //uint64_t self_ucred = 0;
-//                    //kcall(find_copyout(), 3, proc+0x100, &self_ucred, sizeof(self_ucred));
-//
-//                   //kcall(find_bcopy(), 3, kern_ucred + 0x78, self_ucred + 0x78, sizeof(uint64_t));
-//                    //kcall(find_bzero(), 2, self_ucred + 0x18, 12);
-//                   //break;
-//                }
-//                proc = rk64(proc);
-//            }
-//        }
-//    }
-//
-//    //waitpid(pd, NULL, 0);
-//    return rv;
-//}
-
 int startprog(uint64_t kern_ucred, bool wait, const char *prog, const char* args[], const char* envp[]) {
     pid_t pd;
     int rv = posix_spawn(&pd, prog, NULL, NULL, (char**)args, envp);
     printf("spawn '%s': pid=%d\n", prog, pd);
     printf("rv=%d\n", rv);
-    
+
     if (kern_ucred != 0) {
         int tries = 3;
         while (tries-- > 0) {
@@ -828,19 +794,18 @@ int startprog(uint64_t kern_ucred, bool wait, const char *prog, const char* args
                     wk32(proc + offsetof_p_csflags, csflags);
                     printf("empower\n");
                     tries = 0;
-                    uint64_t self_ucred = 0;
-                    kcall(find_copyout(), 3, proc+0x100, &self_ucred, sizeof(self_ucred));
-                    
-                    kcall(find_bcopy(), 3, kern_ucred + 0x78, self_ucred + 0x78, sizeof(uint64_t));
-                    kcall(find_bzero(), 2, self_ucred + 0x18, 12);
-                    break;
+                    //uint64_t self_ucred = 0;
+                    //kcall(find_copyout(), 3, proc+0x100, &self_ucred, sizeof(self_ucred));
+
+                   //kcall(find_bcopy(), 3, kern_ucred + 0x78, self_ucred + 0x78, sizeof(uint64_t));
+                    //kcall(find_bzero(), 2, self_ucred + 0x18, 12);
+                   //break;
                 }
                 proc = rk64(proc);
             }
         }
     }
-    
-    if (wait)
-        waitpid(pd, NULL, 0);
+
+    //waitpid(pd, NULL, 0);
     return rv;
 }
