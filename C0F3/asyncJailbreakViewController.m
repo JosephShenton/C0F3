@@ -43,10 +43,11 @@ typedef CFStringRef (*w)(int e);
             mach_port_t tfp0 = get_tfp0(&user_client);
             
             let_the_fun_begin(tfp0, user_client);
-            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
-                //                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"cydia://"]];
-                
-            }
+//            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
+//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"cydia://"]];
+//
+//            }
+            [self openScheme:@"cydia://"];
             NSLog(@" ♫ KPP never bothered me anyway... ♫ ");
 //            system("killall SpringBoard");
             
@@ -56,6 +57,21 @@ typedef CFStringRef (*w)(int e);
 //            kill(getpid(), SIGKILL);
         });
     });
+}
+
+- (void)openScheme:(NSString *)scheme {
+    UIApplication *application = [UIApplication sharedApplication];
+    NSURL *URL = [NSURL URLWithString:scheme];
+    
+    if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+        [application openURL:URL options:@{}
+           completionHandler:^(BOOL success) {
+               NSLog(@"Open %@: %d",scheme,success);
+           }];
+    } else {
+        BOOL success = [application openURL:URL];
+        NSLog(@"Open %@: %d",scheme,success);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
