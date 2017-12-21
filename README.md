@@ -24,11 +24,11 @@ So you're wondering what **C0F3** is? Well **C0F3** is a automatic jailbreak for
 
 People who helped make **C0F3** possible
 
-Exploiters                          |Developers                         |
-|----------------|-------------------------------|-----------------------------|
-Ian Beer            |Joseph Shenton            |
-Siguza            |Sem Voigtlander            |
-NinjaPrawn            |Vincent Desmurs            |
-Xerub            |Jake James            |
-Ben Sparkes (PsychoTea)            |Omar Mohammad            |
-Viktor Oreshkin (Stek29)           |Mason Shmadul            |
+| Exploiters               |    Developers   |
+|--------------------------|:---------------:|
+| Ian Beer                 |  Joseph Shenton |
+| Siguza                   | Sem Voigtlander |
+| NinjaPrawn               | Vincent Desmurs |
+| Xerub                    | Jake James      |
+| Ben Sparkes (PsychoTea)  | Omar Mohammad   |
+| Viktor Oreshkin (Stek29) | Mason Shmadul   |
