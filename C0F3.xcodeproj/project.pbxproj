@@ -41,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		7C31C8751FEC581E007CFCED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = gnubinpack.tar; sourceTree = "<group>"; };
 		7CC525111FEB5A4D00AD1614 /* fateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fateViewController.h; sourceTree = "<group>"; };
 		7CC525121FEB5A4D00AD1614 /* fateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fateViewController.m; sourceTree = "<group>"; };
 		7CC525151FEB5BEC00AD1614 /* forwardSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forwardSegue.h; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 			children = (
 				7CC525301FEB7E3400AD1614 /* binpack.tar */,
 				7CC5252F1FEB7E3300AD1614 /* cydia.tar */,
+				7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */,
 				BC71C3741FE60FF0004C7C42 /* bootstrap.dmg */,
 				BCEEF6EE1FE88FE6009B9A8B /* test_fsigned */,
 				BC9969011FE6659C00A4EDB9 /* test_fsigned.plist */,

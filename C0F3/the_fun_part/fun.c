@@ -462,7 +462,7 @@ wk64(fake_client+0x48, offx28); \
     rv = startprog(kern_ucred, tar, (char **)&(const char*[]){ tar, "-xpf", progname("cydia.tar"), "-C", "/", NULL });
     inject_trusts(1, (const char **)&(const char*[]){"/Applications/Cydia.app/Cydia"});
     
-    rv = startprog(kern_ucred, tar, (char **)&(const char*[]){ tar, "-xpf", progname("binpack.tar"), "-C", "/" BOOTSTRAP_PREFIX, NULL });
+    rv = startprog(kern_ucred, tar, (char **)&(const char*[]){ tar, "-xpf", progname("gnubinpack.tar"), "-C", "/" BOOTSTRAP_PREFIX, NULL });
     unlink(tar);
     
     int process_binlist(const char *path);
