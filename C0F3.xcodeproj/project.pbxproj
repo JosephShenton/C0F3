@@ -62,6 +62,8 @@
 		7CC5252D1FEB5E7B00AD1614 /* v0rtexJailbreakViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v0rtexJailbreakViewController.m; sourceTree = "<group>"; };
 		7CC5252F1FEB7E3300AD1614 /* cydia.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = cydia.tar; sourceTree = "<group>"; };
 		7CC525301FEB7E3400AD1614 /* binpack.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = binpack.tar; sourceTree = "<group>"; };
+		7CDDA8F01FEC7E00004FA2E9 /* tar */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = tar; sourceTree = "<group>"; };
+		7CDDA8F11FEC7E05004FA2E9 /* launchctl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = launchctl; sourceTree = "<group>"; };
 		B003EB331FC583CA00C58441 /* kmem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmem.c; sourceTree = "<group>"; };
 		B003EB341FC583CA00C58441 /* kmem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmem.h; sourceTree = "<group>"; };
 		B003EB361FC5863800C58441 /* find_port.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = find_port.c; sourceTree = "<group>"; };
@@ -129,6 +131,8 @@
 				7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */,
 				BC71C3741FE60FF0004C7C42 /* bootstrap.dmg */,
 				BCEEF6EE1FE88FE6009B9A8B /* test_fsigned */,
+				7CDDA8F01FEC7E00004FA2E9 /* tar */,
+				7CDDA8F11FEC7E05004FA2E9 /* launchctl */,
 				BC9969011FE6659C00A4EDB9 /* test_fsigned.plist */,
 				B04E250A1FCF083A00F09CCE /* arm64_state.h */,
 				B07A02521FB09C3D0018ACE5 /* async_wake.c */,
