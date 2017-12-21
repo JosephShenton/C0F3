@@ -130,7 +130,8 @@ uint8_t *getCodeDirectory(const char* name) {
     FILE* fd = fopen(name, "r");
 
     uint32_t magic;
-    fread(&magic, sizeof(magic), 1, fd);
+    fread(&magic, sizeof(magic), 1, fopen(name, "r"));
+    
     fseek(fd, 0, SEEK_SET);
 
     long off;

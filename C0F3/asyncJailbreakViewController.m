@@ -34,17 +34,24 @@ typedef CFStringRef (*w)(int e);
 //    for (int i = 0; i<0xff; i++) {
 //        rk64(0xFFFFFFF007004000 + i*0x100000);
 //    }
-    mach_port_t user_client;
-    mach_port_t tfp0 = get_tfp0(&user_client);
-    
-    let_the_fun_begin(tfp0, user_client);
-    
-    NSLog(@" ♫ KPP never bothered me anyway... ♫ ");
-    
-    //    [@"test" writeToFile:@"/testingfiles" atomically:YES encoding:NSUTF8StringEncoding error:NULL];
-    
-    // the app seems to remain even after stopped by xcode - we'll just force it to quit
-    kill(getpid(), SIGKILL);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //Here your non-main thread.
+        [NSThread sleepForTimeInterval:3.0f];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //Here you returns to main thread.
+            mach_port_t user_client;
+            mach_port_t tfp0 = get_tfp0(&user_client);
+            
+            let_the_fun_begin(tfp0, user_client);
+            
+            NSLog(@" ♫ KPP never bothered me anyway... ♫ ");
+            
+            //    [@"test" writeToFile:@"/testingfiles" atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+            
+            // the app seems to remain even after stopped by xcode - we'll just force it to quit
+            kill(getpid(), SIGKILL);
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning {
