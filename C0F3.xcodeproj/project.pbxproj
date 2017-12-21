@@ -40,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C31C8751FEC581E007CFCED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7CC525111FEB5A4D00AD1614 /* fateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fateViewController.h; sourceTree = "<group>"; };
 		7CC525121FEB5A4D00AD1614 /* fateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fateViewController.m; sourceTree = "<group>"; };
 		7CC525151FEB5BEC00AD1614 /* forwardSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forwardSegue.h; sourceTree = "<group>"; };
@@ -254,6 +255,7 @@
 			children = (
 				7C2CE4F21FEB459600783C10 /* Main App */,
 				7C2CE4F01FEB457A00783C10 /* Exploits */,
+				7C31C8751FEC581E007CFCED /* README.md */,
 			);
 			path = C0F3;
 			sourceTree = "<group>";

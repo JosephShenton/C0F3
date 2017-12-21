@@ -43,13 +43,16 @@ typedef CFStringRef (*w)(int e);
             mach_port_t tfp0 = get_tfp0(&user_client);
             
             let_the_fun_begin(tfp0, user_client);
-            
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
+                // Safe to launch the facebook app
+//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/200538917420"]];
+            }
             NSLog(@" ♫ KPP never bothered me anyway... ♫ ");
             
             //    [@"test" writeToFile:@"/testingfiles" atomically:YES encoding:NSUTF8StringEncoding error:NULL];
             
             // the app seems to remain even after stopped by xcode - we'll just force it to quit
-            kill(getpid(), SIGKILL);
+//            kill(getpid(), SIGKILL);
         });
     });
 }
