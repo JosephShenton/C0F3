@@ -44,10 +44,11 @@ typedef CFStringRef (*w)(int e);
             
             let_the_fun_begin(tfp0, user_client);
             if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
-                // Safe to launch the facebook app
-//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/200538917420"]];
+                //                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"cydia://"]];
+                
             }
             NSLog(@" ♫ KPP never bothered me anyway... ♫ ");
+//            system("killall SpringBoard");
             
             //    [@"test" writeToFile:@"/testingfiles" atomically:YES encoding:NSUTF8StringEncoding error:NULL];
             
