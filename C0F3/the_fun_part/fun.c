@@ -451,6 +451,7 @@ do { \
     cp(tar, progname("tar"));
     chmod(tar, 0777);
     inject_trusts(1, (const char **)&(const char*[]){tar});
+//    inject_trusts(1, &tar);
 
     int rv;
 
@@ -558,6 +559,7 @@ void inject_trust(const char *path) {
     last_injected = kernel_trust;
 
     // Comment this line out to see `amfid` saying there is no signature on test_fsigned (or your binary)
+    printf("Trusted '%s'\n", path);
     wk64(tc, kernel_trust);
 }
 
