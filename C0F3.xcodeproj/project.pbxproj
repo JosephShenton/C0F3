@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C968DBE1FECCE20003AF940 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C968DBD1FECCE20003AF940 /* IOKit.framework */; };
+		7C968DBF1FECCE2D003AF940 /* libjb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C968DBB1FECCDCE003AF940 /* libjb.a */; };
+		7C968DC01FECCE72003AF940 /* bash in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DAA1FECCDC0003AF940 /* bash */; };
+		7C968DC11FECCE72003AF940 /* bootstrap.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DBA1FECCDCE003AF940 /* bootstrap.tar */; };
+		7C968DC21FECCE72003AF940 /* dropbear in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DA41FECCDBE003AF940 /* dropbear */; };
+		7C968DC31FECCE72003AF940 /* dropbear.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DB51FECCDC8003AF940 /* dropbear.plist */; };
+		7C968DC41FECCE72003AF940 /* launchctl in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DB41FECCDC7003AF940 /* launchctl */; };
+		7C968DC51FECCE72003AF940 /* tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DB21FECCDC6003AF940 /* tar */; };
 		7CC525131FEB5A4D00AD1614 /* fateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525121FEB5A4D00AD1614 /* fateViewController.m */; };
 		7CC525171FEB5BEC00AD1614 /* forwardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525161FEB5BEC00AD1614 /* forwardSegue.m */; };
 		7CC5251A1FEB5C0600AD1614 /* backwardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525191FEB5C0600AD1614 /* backwardSegue.m */; };
@@ -42,6 +50,31 @@
 /* Begin PBXFileReference section */
 		7C31C8751FEC581E007CFCED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = gnubinpack.tar; sourceTree = "<group>"; };
+		7C968DA41FECCDBE003AF940 /* dropbear */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dropbear; sourceTree = "<group>"; };
+		7C968DA51FECCDBE003AF940 /* kernel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kernel.m; sourceTree = "<group>"; };
+		7C968DA61FECCDBF003AF940 /* libjb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libjb.h; sourceTree = "<group>"; };
+		7C968DA71FECCDBF003AF940 /* patchfinder64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = patchfinder64.c; sourceTree = "<group>"; };
+		7C968DA81FECCDBF003AF940 /* v0rtex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v0rtex.m; sourceTree = "<group>"; };
+		7C968DA91FECCDC0003AF940 /* symbols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = symbols.h; sourceTree = "<group>"; };
+		7C968DAA1FECCDC0003AF940 /* bash */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = bash; sourceTree = "<group>"; };
+		7C968DAB1FECCDC1003AF940 /* amfi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = amfi.m; sourceTree = "<group>"; };
+		7C968DAC1FECCDC1003AF940 /* root-rw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "root-rw.h"; sourceTree = "<group>"; };
+		7C968DAD1FECCDC2003AF940 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		7C968DAE1FECCDC2003AF940 /* symbols.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = symbols.m; sourceTree = "<group>"; };
+		7C968DAF1FECCDC4003AF940 /* bootstrap-orig.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "bootstrap-orig.tar"; sourceTree = "<group>"; };
+		7C968DB01FECCDC5003AF940 /* patchfinder64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patchfinder64.h; sourceTree = "<group>"; };
+		7C968DB11FECCDC6003AF940 /* root-rw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "root-rw.m"; sourceTree = "<group>"; };
+		7C968DB21FECCDC6003AF940 /* tar */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = tar; sourceTree = "<group>"; };
+		7C968DB31FECCDC7003AF940 /* kernel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kernel.h; sourceTree = "<group>"; };
+		7C968DB41FECCDC7003AF940 /* launchctl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = launchctl; sourceTree = "<group>"; };
+		7C968DB51FECCDC8003AF940 /* dropbear.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = dropbear.plist; sourceTree = "<group>"; };
+		7C968DB61FECCDC8003AF940 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7C968DB71FECCDC9003AF940 /* amfi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = amfi.h; sourceTree = "<group>"; };
+		7C968DB81FECCDCA003AF940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C968DB91FECCDCA003AF940 /* v0rtex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v0rtex.h; sourceTree = "<group>"; };
+		7C968DBA1FECCDCE003AF940 /* bootstrap.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap.tar; sourceTree = "<group>"; };
+		7C968DBB1FECCDCE003AF940 /* libjb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjb.a; sourceTree = "<group>"; };
+		7C968DBD1FECCE20003AF940 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = ../../../../../System/Library/Frameworks/IOKit.framework; sourceTree = "<group>"; };
 		7CC525111FEB5A4D00AD1614 /* fateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fateViewController.h; sourceTree = "<group>"; };
 		7CC525121FEB5A4D00AD1614 /* fateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fateViewController.m; sourceTree = "<group>"; };
 		7CC525151FEB5BEC00AD1614 /* forwardSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forwardSegue.h; sourceTree = "<group>"; };
@@ -109,6 +142,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C968DBF1FECCE2D003AF940 /* libjb.a in Frameworks */,
+				7C968DBE1FECCE20003AF940 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +153,7 @@
 		7C2CE4F01FEB457A00783C10 /* Exploits */ = {
 			isa = PBXGroup;
 			children = (
+				7C968DA31FECCD94003AF940 /* V0RTEX */,
 				7C2CE4F11FEB458300783C10 /* ASYNC_WAKE */,
 			);
 			name = Exploits;
@@ -196,6 +232,45 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
+		7C968DA31FECCD94003AF940 /* V0RTEX */ = {
+			isa = PBXGroup;
+			children = (
+				7C968DB71FECCDC9003AF940 /* amfi.h */,
+				7C968DAB1FECCDC1003AF940 /* amfi.m */,
+				7C968DAA1FECCDC0003AF940 /* bash */,
+				7C968DAF1FECCDC4003AF940 /* bootstrap-orig.tar */,
+				7C968DBA1FECCDCE003AF940 /* bootstrap.tar */,
+				7C968DAD1FECCDC2003AF940 /* common.h */,
+				7C968DA41FECCDBE003AF940 /* dropbear */,
+				7C968DB51FECCDC8003AF940 /* dropbear.plist */,
+				7C968DB81FECCDCA003AF940 /* Info.plist */,
+				7C968DB31FECCDC7003AF940 /* kernel.h */,
+				7C968DA51FECCDBE003AF940 /* kernel.m */,
+				7C968DB41FECCDC7003AF940 /* launchctl */,
+				7C968DBB1FECCDCE003AF940 /* libjb.a */,
+				7C968DA61FECCDBF003AF940 /* libjb.h */,
+				7C968DB61FECCDC8003AF940 /* main.m */,
+				7C968DA71FECCDBF003AF940 /* patchfinder64.c */,
+				7C968DB01FECCDC5003AF940 /* patchfinder64.h */,
+				7C968DAC1FECCDC1003AF940 /* root-rw.h */,
+				7C968DB11FECCDC6003AF940 /* root-rw.m */,
+				7C968DA91FECCDC0003AF940 /* symbols.h */,
+				7C968DAE1FECCDC2003AF940 /* symbols.m */,
+				7C968DB21FECCDC6003AF940 /* tar */,
+				7C968DB91FECCDCA003AF940 /* v0rtex.h */,
+				7C968DA81FECCDBF003AF940 /* v0rtex.m */,
+			);
+			path = V0RTEX;
+			sourceTree = "<group>";
+		};
+		7C968DBC1FECCE1F003AF940 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C968DBD1FECCE20003AF940 /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7CC525141FEB5BC900AD1614 /* Segues */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +320,7 @@
 			children = (
 				B07A023B1FB09B6F0018ACE5 /* C0F3 */,
 				B07A023A1FB09B6F0018ACE5 /* Products */,
+				7C968DBC1FECCE1F003AF940 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -337,6 +413,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C968DC01FECCE72003AF940 /* bash in Resources */,
+				7C968DC11FECCE72003AF940 /* bootstrap.tar in Resources */,
+				7C968DC21FECCE72003AF940 /* dropbear in Resources */,
+				7C968DC31FECCE72003AF940 /* dropbear.plist in Resources */,
+				7C968DC41FECCE72003AF940 /* launchctl in Resources */,
+				7C968DC51FECCE72003AF940 /* tar in Resources */,
 				BC9969021FE6659C00A4EDB9 /* test_fsigned.plist in Resources */,
 				B0D79D621FDED41000B4F233 /* README in Resources */,
 				BC9969041FE66CE200A4EDB9 /* ent.plist in Resources */,
@@ -519,6 +601,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/async_wake_ios/the_fun_part",
+					"$(PROJECT_DIR)/C0F3/V0RTEX",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -544,6 +627,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/async_wake_ios/the_fun_part",
+					"$(PROJECT_DIR)/C0F3/V0RTEX",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
