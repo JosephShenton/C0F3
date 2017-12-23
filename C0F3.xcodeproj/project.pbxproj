@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C86F2651FEE1DAA00974230 /* async_wake.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F2631FEE1D6500974230 /* async_wake.m */; };
+		7C86F2661FEE1DAA00974230 /* bootstrap_2.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C86F2621FEE1D6400974230 /* bootstrap_2.tar */; };
+		7C86F2671FEE1DAA00974230 /* bootstrap.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C86F2521FEE1D5700974230 /* bootstrap.tar */; };
+		7C86F2681FEE1DAA00974230 /* early_kalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F2431FEE1D4900974230 /* early_kalloc.c */; };
+		7C86F2691FEE1DAA00974230 /* kcall.c in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F2611FEE1D5A00974230 /* kcall.c */; };
+		7C86F26A1FEE1DAA00974230 /* kdbg.c in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F2471FEE1D4B00974230 /* kdbg.c */; };
+		7C86F26B1FEE1DAA00974230 /* kmem.c in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F2481FEE1D4C00974230 /* kmem.c */; };
+		7C86F26C1FEE1DAA00974230 /* kutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F24F1FEE1D4F00974230 /* kutils.c */; };
+		7C86F26D1FEE1DAA00974230 /* reload in Resources */ = {isa = PBXBuildFile; fileRef = 7C86F2541FEE1D5800974230 /* reload */; };
+		7C86F26E1FEE1DAA00974230 /* symbols.c in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F2491FEE1D4C00974230 /* symbols.c */; };
+		7C86F26F1FEE1DC800974230 /* patchfinder64_11.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F2591FEE1D5900974230 /* patchfinder64_11.m */; };
+		7C86F2701FEE1DC800974230 /* jailbreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F25A1FEE1D5900974230 /* jailbreak.m */; };
+		7C86F2711FEE1DC800974230 /* jailbreakd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F25B1FEE1D5900974230 /* jailbreakd.m */; };
+		7C86F2721FEE1DC800974230 /* amfi_codesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F25C1FEE1D5900974230 /* amfi_codesign.m */; };
+		7C86F2731FEE1DC800974230 /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F25D1FEE1D5900974230 /* utilities.m */; };
+		7C86F2741FEE1DC800974230 /* libjb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C86F25F1FEE1D5900974230 /* libjb.a */; };
+		7C86F2761FEE212E00974230 /* find_port.c in Sources */ = {isa = PBXBuildFile; fileRef = 7C86F2751FEE212C00974230 /* find_port.c */; };
 		7C968DBE1FECCE20003AF940 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C968DBD1FECCE20003AF940 /* IOKit.framework */; };
-		7C968DBF1FECCE2D003AF940 /* libjb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C968DBB1FECCDCE003AF940 /* libjb.a */; };
-		7C968DC01FECCE72003AF940 /* bash in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DAA1FECCDC0003AF940 /* bash */; };
-		7C968DC11FECCE72003AF940 /* bootstrap.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DBA1FECCDCE003AF940 /* bootstrap.tar */; };
-		7C968DC21FECCE72003AF940 /* dropbear in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DA41FECCDBE003AF940 /* dropbear */; };
-		7C968DC31FECCE72003AF940 /* dropbear.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DB51FECCDC8003AF940 /* dropbear.plist */; };
-		7C968DC41FECCE72003AF940 /* launchctl in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DB41FECCDC7003AF940 /* launchctl */; };
-		7C968DC51FECCE72003AF940 /* tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C968DB21FECCDC6003AF940 /* tar */; };
 		7CC525131FEB5A4D00AD1614 /* fateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525121FEB5A4D00AD1614 /* fateViewController.m */; };
 		7CC525171FEB5BEC00AD1614 /* forwardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525161FEB5BEC00AD1614 /* forwardSegue.m */; };
 		7CC5251A1FEB5C0600AD1614 /* backwardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525191FEB5C0600AD1614 /* backwardSegue.m */; };
@@ -24,56 +34,47 @@
 		7CC525281FEB5E4200AD1614 /* v0rtexConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525271FEB5E4200AD1614 /* v0rtexConfirmViewController.m */; };
 		7CC5252B1FEB5E6D00AD1614 /* asyncJailbreakViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC5252A1FEB5E6D00AD1614 /* asyncJailbreakViewController.m */; };
 		7CC5252E1FEB5E7B00AD1614 /* v0rtexJailbreakViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC5252D1FEB5E7B00AD1614 /* v0rtexJailbreakViewController.m */; };
-		B003EB351FC583CB00C58441 /* kmem.c in Sources */ = {isa = PBXBuildFile; fileRef = B003EB331FC583CA00C58441 /* kmem.c */; };
-		B003EB381FC5863800C58441 /* find_port.c in Sources */ = {isa = PBXBuildFile; fileRef = B003EB361FC5863800C58441 /* find_port.c */; };
-		B003EB3B1FC58F4900C58441 /* kdbg.c in Sources */ = {isa = PBXBuildFile; fileRef = B003EB391FC58F4900C58441 /* kdbg.c */; };
-		B04E25091FCD6DB300F09CCE /* kutils.c in Sources */ = {isa = PBXBuildFile; fileRef = B04E25071FCD6DB300F09CCE /* kutils.c */; };
 		B07A023E1FB09B6F0018ACE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A023D1FB09B6F0018ACE5 /* AppDelegate.m */; };
 		B07A02411FB09B6F0018ACE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A02401FB09B6F0018ACE5 /* ViewController.m */; };
 		B07A02441FB09B6F0018ACE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07A02421FB09B6F0018ACE5 /* Main.storyboard */; };
 		B07A02461FB09B6F0018ACE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07A02451FB09B6F0018ACE5 /* Assets.xcassets */; };
 		B07A02491FB09B6F0018ACE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07A02471FB09B6F0018ACE5 /* LaunchScreen.storyboard */; };
 		B07A024C1FB09B6F0018ACE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A024B1FB09B6F0018ACE5 /* main.m */; };
-		B07A02541FB09C3D0018ACE5 /* async_wake.c in Sources */ = {isa = PBXBuildFile; fileRef = B07A02521FB09C3D0018ACE5 /* async_wake.c */; };
-		B0D79D621FDED41000B4F233 /* README in Resources */ = {isa = PBXBuildFile; fileRef = B0D79D611FDED41000B4F233 /* README */; };
-		B0EF11141FCC6F9C00C1D14E /* kcall.c in Sources */ = {isa = PBXBuildFile; fileRef = B0EF11121FCC6F9C00C1D14E /* kcall.c */; };
-		B0EF11171FCC784B00C1D14E /* symbols.c in Sources */ = {isa = PBXBuildFile; fileRef = B0EF11151FCC784B00C1D14E /* symbols.c */; };
-		B0F5AA3F1FDE87E90073FD88 /* early_kalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = B0F5AA3D1FDE87E80073FD88 /* early_kalloc.c */; };
-		BC8B64C41FE5252F00EDF749 /* fun_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B64C31FE5252F00EDF749 /* fun_objc.m */; };
-		BC8EE46C1FE272CF00402F32 /* fun.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46A1FE272CF00402F32 /* fun.c */; };
-		BC8EE46F1FE2B4E800402F32 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46D1FE2B4E800402F32 /* patchfinder64.c */; };
-		BC9969021FE6659C00A4EDB9 /* test_fsigned.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC9969011FE6659C00A4EDB9 /* test_fsigned.plist */; };
-		BC9969041FE66CE200A4EDB9 /* ent.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC9969031FE66CE200A4EDB9 /* ent.plist */; };
-		BCEEF6EF1FE88FE6009B9A8B /* test_fsigned in Resources */ = {isa = PBXBuildFile; fileRef = BCEEF6EE1FE88FE6009B9A8B /* test_fsigned */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7C31C8751FEC581E007CFCED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = gnubinpack.tar; sourceTree = "<group>"; };
-		7C968DA41FECCDBE003AF940 /* dropbear */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dropbear; sourceTree = "<group>"; };
-		7C968DA51FECCDBE003AF940 /* kernel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kernel.m; sourceTree = "<group>"; };
-		7C968DA61FECCDBF003AF940 /* libjb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libjb.h; sourceTree = "<group>"; };
-		7C968DA71FECCDBF003AF940 /* patchfinder64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = patchfinder64.c; sourceTree = "<group>"; };
-		7C968DA81FECCDBF003AF940 /* v0rtex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v0rtex.m; sourceTree = "<group>"; };
-		7C968DA91FECCDC0003AF940 /* symbols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = symbols.h; sourceTree = "<group>"; };
-		7C968DAA1FECCDC0003AF940 /* bash */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = bash; sourceTree = "<group>"; };
-		7C968DAB1FECCDC1003AF940 /* amfi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = amfi.m; sourceTree = "<group>"; };
-		7C968DAC1FECCDC1003AF940 /* root-rw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "root-rw.h"; sourceTree = "<group>"; };
-		7C968DAD1FECCDC2003AF940 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		7C968DAE1FECCDC2003AF940 /* symbols.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = symbols.m; sourceTree = "<group>"; };
-		7C968DAF1FECCDC4003AF940 /* bootstrap-orig.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "bootstrap-orig.tar"; sourceTree = "<group>"; };
-		7C968DB01FECCDC5003AF940 /* patchfinder64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patchfinder64.h; sourceTree = "<group>"; };
-		7C968DB11FECCDC6003AF940 /* root-rw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "root-rw.m"; sourceTree = "<group>"; };
-		7C968DB21FECCDC6003AF940 /* tar */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = tar; sourceTree = "<group>"; };
-		7C968DB31FECCDC7003AF940 /* kernel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kernel.h; sourceTree = "<group>"; };
-		7C968DB41FECCDC7003AF940 /* launchctl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = launchctl; sourceTree = "<group>"; };
-		7C968DB51FECCDC8003AF940 /* dropbear.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = dropbear.plist; sourceTree = "<group>"; };
-		7C968DB61FECCDC8003AF940 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7C968DB71FECCDC9003AF940 /* amfi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = amfi.h; sourceTree = "<group>"; };
-		7C968DB81FECCDCA003AF940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C968DB91FECCDCA003AF940 /* v0rtex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v0rtex.h; sourceTree = "<group>"; };
-		7C968DBA1FECCDCE003AF940 /* bootstrap.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap.tar; sourceTree = "<group>"; };
-		7C968DBB1FECCDCE003AF940 /* libjb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjb.a; sourceTree = "<group>"; };
+		7C86F2431FEE1D4900974230 /* early_kalloc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = early_kalloc.c; sourceTree = "<group>"; };
+		7C86F2441FEE1D4900974230 /* async_wake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = async_wake.h; sourceTree = "<group>"; };
+		7C86F2451FEE1D4A00974230 /* symbols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = symbols.h; sourceTree = "<group>"; };
+		7C86F2461FEE1D4A00974230 /* arm64_state.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = arm64_state.h; sourceTree = "<group>"; };
+		7C86F2471FEE1D4B00974230 /* kdbg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kdbg.c; sourceTree = "<group>"; };
+		7C86F2481FEE1D4C00974230 /* kmem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmem.c; sourceTree = "<group>"; };
+		7C86F2491FEE1D4C00974230 /* symbols.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = symbols.c; sourceTree = "<group>"; };
+		7C86F24A1FEE1D4D00974230 /* kcall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kcall.h; sourceTree = "<group>"; };
+		7C86F24B1FEE1D4D00974230 /* kutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kutils.h; sourceTree = "<group>"; };
+		7C86F24C1FEE1D4E00974230 /* kmem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmem.h; sourceTree = "<group>"; };
+		7C86F24F1FEE1D4F00974230 /* kutils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kutils.c; sourceTree = "<group>"; };
+		7C86F2501FEE1D5000974230 /* kdbg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kdbg.h; sourceTree = "<group>"; };
+		7C86F2511FEE1D5100974230 /* early_kalloc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = early_kalloc.h; sourceTree = "<group>"; };
+		7C86F2521FEE1D5700974230 /* bootstrap.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap.tar; sourceTree = "<group>"; };
+		7C86F2541FEE1D5800974230 /* reload */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = reload; sourceTree = "<group>"; };
+		7C86F2561FEE1D5900974230 /* jailbreak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jailbreak.h; sourceTree = "<group>"; };
+		7C86F2571FEE1D5900974230 /* amfi_codesign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = amfi_codesign.h; sourceTree = "<group>"; };
+		7C86F2581FEE1D5900974230 /* utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
+		7C86F2591FEE1D5900974230 /* patchfinder64_11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = patchfinder64_11.m; sourceTree = "<group>"; };
+		7C86F25A1FEE1D5900974230 /* jailbreak.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jailbreak.m; sourceTree = "<group>"; };
+		7C86F25B1FEE1D5900974230 /* jailbreakd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jailbreakd.m; sourceTree = "<group>"; };
+		7C86F25C1FEE1D5900974230 /* amfi_codesign.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = amfi_codesign.m; sourceTree = "<group>"; };
+		7C86F25D1FEE1D5900974230 /* utilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = utilities.m; sourceTree = "<group>"; };
+		7C86F25E1FEE1D5900974230 /* patchfinder64_11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patchfinder64_11.h; sourceTree = "<group>"; };
+		7C86F25F1FEE1D5900974230 /* libjb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjb.a; sourceTree = "<group>"; };
+		7C86F2601FEE1D5900974230 /* libjb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libjb.h; sourceTree = "<group>"; };
+		7C86F2611FEE1D5A00974230 /* kcall.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kcall.c; sourceTree = "<group>"; };
+		7C86F2621FEE1D6400974230 /* bootstrap_2.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap_2.tar; sourceTree = "<group>"; };
+		7C86F2631FEE1D6500974230 /* async_wake.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = async_wake.m; sourceTree = "<group>"; };
+		7C86F2641FEE1D6600974230 /* find_port.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = find_port.h; sourceTree = "<group>"; };
+		7C86F2751FEE212C00974230 /* find_port.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = find_port.c; path = "../../../../Downloads/topanga-master/topanga/find_port.c"; sourceTree = "<group>"; };
 		7C968DBD1FECCE20003AF940 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = ../../../../../System/Library/Frameworks/IOKit.framework; sourceTree = "<group>"; };
 		7CC525111FEB5A4D00AD1614 /* fateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fateViewController.h; sourceTree = "<group>"; };
 		7CC525121FEB5A4D00AD1614 /* fateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fateViewController.m; sourceTree = "<group>"; };
@@ -93,19 +94,6 @@
 		7CC5252A1FEB5E6D00AD1614 /* asyncJailbreakViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = asyncJailbreakViewController.m; sourceTree = "<group>"; };
 		7CC5252C1FEB5E7B00AD1614 /* v0rtexJailbreakViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v0rtexJailbreakViewController.h; sourceTree = "<group>"; };
 		7CC5252D1FEB5E7B00AD1614 /* v0rtexJailbreakViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v0rtexJailbreakViewController.m; sourceTree = "<group>"; };
-		7CC5252F1FEB7E3300AD1614 /* cydia.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = cydia.tar; sourceTree = "<group>"; };
-		7CC525301FEB7E3400AD1614 /* binpack.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = binpack.tar; sourceTree = "<group>"; };
-		7CDDA8F01FEC7E00004FA2E9 /* tar */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = tar; sourceTree = "<group>"; };
-		7CDDA8F11FEC7E05004FA2E9 /* launchctl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = launchctl; sourceTree = "<group>"; };
-		B003EB331FC583CA00C58441 /* kmem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kmem.c; sourceTree = "<group>"; };
-		B003EB341FC583CA00C58441 /* kmem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kmem.h; sourceTree = "<group>"; };
-		B003EB361FC5863800C58441 /* find_port.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = find_port.c; sourceTree = "<group>"; };
-		B003EB371FC5863800C58441 /* find_port.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = find_port.h; sourceTree = "<group>"; };
-		B003EB391FC58F4900C58441 /* kdbg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kdbg.c; sourceTree = "<group>"; };
-		B003EB3A1FC58F4900C58441 /* kdbg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kdbg.h; sourceTree = "<group>"; };
-		B04E25071FCD6DB300F09CCE /* kutils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kutils.c; sourceTree = "<group>"; };
-		B04E25081FCD6DB300F09CCE /* kutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kutils.h; sourceTree = "<group>"; };
-		B04E250A1FCF083A00F09CCE /* arm64_state.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = arm64_state.h; sourceTree = "<group>"; };
 		B07A02391FB09B6F0018ACE5 /* C0F3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = C0F3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A023C1FB09B6F0018ACE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B07A023D1FB09B6F0018ACE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,25 +104,6 @@
 		B07A02481FB09B6F0018ACE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B07A024A1FB09B6F0018ACE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07A024B1FB09B6F0018ACE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B07A02521FB09C3D0018ACE5 /* async_wake.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = async_wake.c; sourceTree = "<group>"; };
-		B07A02531FB09C3D0018ACE5 /* async_wake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = async_wake.h; sourceTree = "<group>"; };
-		B0D79D611FDED41000B4F233 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		B0EF11121FCC6F9C00C1D14E /* kcall.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kcall.c; sourceTree = "<group>"; };
-		B0EF11131FCC6F9C00C1D14E /* kcall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kcall.h; sourceTree = "<group>"; };
-		B0EF11151FCC784B00C1D14E /* symbols.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = symbols.c; sourceTree = "<group>"; };
-		B0EF11161FCC784B00C1D14E /* symbols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = symbols.h; sourceTree = "<group>"; };
-		B0F5AA3D1FDE87E80073FD88 /* early_kalloc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = early_kalloc.c; sourceTree = "<group>"; };
-		B0F5AA3E1FDE87E80073FD88 /* early_kalloc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = early_kalloc.h; sourceTree = "<group>"; };
-		BC71C3741FE60FF0004C7C42 /* bootstrap.dmg */ = {isa = PBXFileReference; lastKnownFileType = file; path = bootstrap.dmg; sourceTree = "<group>"; };
-		BC8B64C31FE5252F00EDF749 /* fun_objc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fun_objc.m; sourceTree = "<group>"; };
-		BC8B64C51FE5253B00EDF749 /* fun_objc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fun_objc.h; sourceTree = "<group>"; };
-		BC8EE46A1FE272CF00402F32 /* fun.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fun.c; sourceTree = "<group>"; };
-		BC8EE46B1FE272CF00402F32 /* fun.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fun.h; sourceTree = "<group>"; };
-		BC8EE46D1FE2B4E800402F32 /* patchfinder64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = patchfinder64.c; sourceTree = "<group>"; };
-		BC8EE46E1FE2B4E800402F32 /* patchfinder64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = patchfinder64.h; sourceTree = "<group>"; };
-		BC9969011FE6659C00A4EDB9 /* test_fsigned.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_fsigned.plist; sourceTree = "<group>"; };
-		BC9969031FE66CE200A4EDB9 /* ent.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ent.plist; sourceTree = "<group>"; };
-		BCEEF6EE1FE88FE6009B9A8B /* test_fsigned */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = test_fsigned; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C968DBF1FECCE2D003AF940 /* libjb.a in Frameworks */,
 				7C968DBE1FECCE20003AF940 /* IOKit.framework in Frameworks */,
+				7C86F2741FEE1DC800974230 /* libjb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +122,6 @@
 		7C2CE4F01FEB457A00783C10 /* Exploits */ = {
 			isa = PBXGroup;
 			children = (
-				7C968DA31FECCD94003AF940 /* V0RTEX */,
 				7C2CE4F11FEB458300783C10 /* ASYNC_WAKE */,
 			);
 			name = Exploits;
@@ -162,34 +130,27 @@
 		7C2CE4F11FEB458300783C10 /* ASYNC_WAKE */ = {
 			isa = PBXGroup;
 			children = (
-				7CC525301FEB7E3400AD1614 /* binpack.tar */,
-				7CC5252F1FEB7E3300AD1614 /* cydia.tar */,
-				7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */,
-				BC71C3741FE60FF0004C7C42 /* bootstrap.dmg */,
-				BCEEF6EE1FE88FE6009B9A8B /* test_fsigned */,
-				7CDDA8F01FEC7E00004FA2E9 /* tar */,
-				7CDDA8F11FEC7E05004FA2E9 /* launchctl */,
-				BC9969011FE6659C00A4EDB9 /* test_fsigned.plist */,
-				B04E250A1FCF083A00F09CCE /* arm64_state.h */,
-				B07A02521FB09C3D0018ACE5 /* async_wake.c */,
-				B07A02531FB09C3D0018ACE5 /* async_wake.h */,
-				B0F5AA3D1FDE87E80073FD88 /* early_kalloc.c */,
-				B0F5AA3E1FDE87E80073FD88 /* early_kalloc.h */,
-				B003EB361FC5863800C58441 /* find_port.c */,
-				B003EB371FC5863800C58441 /* find_port.h */,
-				B0EF11121FCC6F9C00C1D14E /* kcall.c */,
-				B0EF11131FCC6F9C00C1D14E /* kcall.h */,
-				B003EB391FC58F4900C58441 /* kdbg.c */,
-				B003EB3A1FC58F4900C58441 /* kdbg.h */,
-				B003EB331FC583CA00C58441 /* kmem.c */,
-				B003EB341FC583CA00C58441 /* kmem.h */,
-				B04E25071FCD6DB300F09CCE /* kutils.c */,
-				B04E25081FCD6DB300F09CCE /* kutils.h */,
-				B0D79D611FDED41000B4F233 /* README */,
-				B0EF11151FCC784B00C1D14E /* symbols.c */,
-				B0EF11161FCC784B00C1D14E /* symbols.h */,
-				BCF206541FE32E1D0081CBE5 /* the_fun_part */,
-				BC9969031FE66CE200A4EDB9 /* ent.plist */,
+				7C86F2461FEE1D4A00974230 /* arm64_state.h */,
+				7C86F2441FEE1D4900974230 /* async_wake.h */,
+				7C86F2631FEE1D6500974230 /* async_wake.m */,
+				7C86F2621FEE1D6400974230 /* bootstrap_2.tar */,
+				7C86F2521FEE1D5700974230 /* bootstrap.tar */,
+				7C86F2431FEE1D4900974230 /* early_kalloc.c */,
+				7C86F2511FEE1D5100974230 /* early_kalloc.h */,
+				7C86F2551FEE1D5900974230 /* extra_recipe */,
+				7C86F2641FEE1D6600974230 /* find_port.h */,
+				7C86F2751FEE212C00974230 /* find_port.c */,
+				7C86F2611FEE1D5A00974230 /* kcall.c */,
+				7C86F24A1FEE1D4D00974230 /* kcall.h */,
+				7C86F2471FEE1D4B00974230 /* kdbg.c */,
+				7C86F2501FEE1D5000974230 /* kdbg.h */,
+				7C86F2481FEE1D4C00974230 /* kmem.c */,
+				7C86F24C1FEE1D4E00974230 /* kmem.h */,
+				7C86F24F1FEE1D4F00974230 /* kutils.c */,
+				7C86F24B1FEE1D4D00974230 /* kutils.h */,
+				7C86F2541FEE1D5800974230 /* reload */,
+				7C86F2491FEE1D4C00974230 /* symbols.c */,
+				7C86F2451FEE1D4A00974230 /* symbols.h */,
 			);
 			name = ASYNC_WAKE;
 			sourceTree = "<group>";
@@ -232,35 +193,22 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
-		7C968DA31FECCD94003AF940 /* V0RTEX */ = {
+		7C86F2551FEE1D5900974230 /* extra_recipe */ = {
 			isa = PBXGroup;
 			children = (
-				7C968DB71FECCDC9003AF940 /* amfi.h */,
-				7C968DAB1FECCDC1003AF940 /* amfi.m */,
-				7C968DAA1FECCDC0003AF940 /* bash */,
-				7C968DAF1FECCDC4003AF940 /* bootstrap-orig.tar */,
-				7C968DBA1FECCDCE003AF940 /* bootstrap.tar */,
-				7C968DAD1FECCDC2003AF940 /* common.h */,
-				7C968DA41FECCDBE003AF940 /* dropbear */,
-				7C968DB51FECCDC8003AF940 /* dropbear.plist */,
-				7C968DB81FECCDCA003AF940 /* Info.plist */,
-				7C968DB31FECCDC7003AF940 /* kernel.h */,
-				7C968DA51FECCDBE003AF940 /* kernel.m */,
-				7C968DB41FECCDC7003AF940 /* launchctl */,
-				7C968DBB1FECCDCE003AF940 /* libjb.a */,
-				7C968DA61FECCDBF003AF940 /* libjb.h */,
-				7C968DB61FECCDC8003AF940 /* main.m */,
-				7C968DA71FECCDBF003AF940 /* patchfinder64.c */,
-				7C968DB01FECCDC5003AF940 /* patchfinder64.h */,
-				7C968DAC1FECCDC1003AF940 /* root-rw.h */,
-				7C968DB11FECCDC6003AF940 /* root-rw.m */,
-				7C968DA91FECCDC0003AF940 /* symbols.h */,
-				7C968DAE1FECCDC2003AF940 /* symbols.m */,
-				7C968DB21FECCDC6003AF940 /* tar */,
-				7C968DB91FECCDCA003AF940 /* v0rtex.h */,
-				7C968DA81FECCDBF003AF940 /* v0rtex.m */,
+				7C86F2561FEE1D5900974230 /* jailbreak.h */,
+				7C86F2571FEE1D5900974230 /* amfi_codesign.h */,
+				7C86F2581FEE1D5900974230 /* utilities.h */,
+				7C86F2591FEE1D5900974230 /* patchfinder64_11.m */,
+				7C86F25A1FEE1D5900974230 /* jailbreak.m */,
+				7C86F25B1FEE1D5900974230 /* jailbreakd.m */,
+				7C86F25C1FEE1D5900974230 /* amfi_codesign.m */,
+				7C86F25D1FEE1D5900974230 /* utilities.m */,
+				7C86F25E1FEE1D5900974230 /* patchfinder64_11.h */,
+				7C86F25F1FEE1D5900974230 /* libjb.a */,
+				7C86F2601FEE1D5900974230 /* libjb.h */,
 			);
-			path = V0RTEX;
+			path = extra_recipe;
 			sourceTree = "<group>";
 		};
 		7C968DBC1FECCE1F003AF940 /* Frameworks */ = {
@@ -342,19 +290,6 @@
 			path = C0F3;
 			sourceTree = "<group>";
 		};
-		BCF206541FE32E1D0081CBE5 /* the_fun_part */ = {
-			isa = PBXGroup;
-			children = (
-				BC8B64C51FE5253B00EDF749 /* fun_objc.h */,
-				BC8B64C31FE5252F00EDF749 /* fun_objc.m */,
-				BC8EE46A1FE272CF00402F32 /* fun.c */,
-				BC8EE46B1FE272CF00402F32 /* fun.h */,
-				BC8EE46D1FE2B4E800402F32 /* patchfinder64.c */,
-				BC8EE46E1FE2B4E800402F32 /* patchfinder64.h */,
-			);
-			path = the_fun_part;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -413,19 +348,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C968DC01FECCE72003AF940 /* bash in Resources */,
-				7C968DC11FECCE72003AF940 /* bootstrap.tar in Resources */,
-				7C968DC21FECCE72003AF940 /* dropbear in Resources */,
-				7C968DC31FECCE72003AF940 /* dropbear.plist in Resources */,
-				7C968DC41FECCE72003AF940 /* launchctl in Resources */,
-				7C968DC51FECCE72003AF940 /* tar in Resources */,
-				BC9969021FE6659C00A4EDB9 /* test_fsigned.plist in Resources */,
-				B0D79D621FDED41000B4F233 /* README in Resources */,
-				BC9969041FE66CE200A4EDB9 /* ent.plist in Resources */,
-				BCEEF6EF1FE88FE6009B9A8B /* test_fsigned in Resources */,
 				B07A02491FB09B6F0018ACE5 /* LaunchScreen.storyboard in Resources */,
+				7C86F26D1FEE1DAA00974230 /* reload in Resources */,
 				B07A02461FB09B6F0018ACE5 /* Assets.xcassets in Resources */,
 				B07A02441FB09B6F0018ACE5 /* Main.storyboard in Resources */,
+				7C86F2671FEE1DAA00974230 /* bootstrap.tar in Resources */,
+				7C86F2661FEE1DAA00974230 /* bootstrap_2.tar in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,29 +364,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B003EB351FC583CB00C58441 /* kmem.c in Sources */,
-				B0EF11171FCC784B00C1D14E /* symbols.c in Sources */,
+				7C86F2691FEE1DAA00974230 /* kcall.c in Sources */,
 				B07A02411FB09B6F0018ACE5 /* ViewController.m in Sources */,
-				BC8EE46C1FE272CF00402F32 /* fun.c in Sources */,
-				B04E25091FCD6DB300F09CCE /* kutils.c in Sources */,
-				BC8B64C41FE5252F00EDF749 /* fun_objc.m in Sources */,
 				7CC5252B1FEB5E6D00AD1614 /* asyncJailbreakViewController.m in Sources */,
 				7CC5252E1FEB5E7B00AD1614 /* v0rtexJailbreakViewController.m in Sources */,
+				7C86F26B1FEE1DAA00974230 /* kmem.c in Sources */,
 				7CC5251A1FEB5C0600AD1614 /* backwardSegue.m in Sources */,
+				7C86F2701FEE1DC800974230 /* jailbreak.m in Sources */,
+				7C86F26E1FEE1DAA00974230 /* symbols.c in Sources */,
+				7C86F2761FEE212E00974230 /* find_port.c in Sources */,
 				B07A024C1FB09B6F0018ACE5 /* main.m in Sources */,
-				B003EB381FC5863800C58441 /* find_port.c in Sources */,
-				B07A02541FB09C3D0018ACE5 /* async_wake.c in Sources */,
+				7C86F26F1FEE1DC800974230 /* patchfinder64_11.m in Sources */,
 				B07A023E1FB09B6F0018ACE5 /* AppDelegate.m in Sources */,
-				BC8EE46F1FE2B4E800402F32 /* patchfinder64.c in Sources */,
-				B003EB3B1FC58F4900C58441 /* kdbg.c in Sources */,
 				7CC525251FEB5E3400AD1614 /* asyncConfirmViewController.m in Sources */,
+				7C86F2681FEE1DAA00974230 /* early_kalloc.c in Sources */,
 				7CC525281FEB5E4200AD1614 /* v0rtexConfirmViewController.m in Sources */,
-				B0EF11141FCC6F9C00C1D14E /* kcall.c in Sources */,
+				7C86F2711FEE1DC800974230 /* jailbreakd.m in Sources */,
 				7CC525171FEB5BEC00AD1614 /* forwardSegue.m in Sources */,
+				7C86F2651FEE1DAA00974230 /* async_wake.m in Sources */,
+				7C86F26C1FEE1DAA00974230 /* kutils.c in Sources */,
+				7C86F2731FEE1DC800974230 /* utilities.m in Sources */,
+				7C86F2721FEE1DC800974230 /* amfi_codesign.m in Sources */,
 				7CC5251F1FEB5D9F00AD1614 /* asyncFoundViewController.m in Sources */,
 				7CC525131FEB5A4D00AD1614 /* fateViewController.m in Sources */,
 				7CC525221FEB5DA900AD1614 /* v0rtexFoundViewController.m in Sources */,
-				B0F5AA3F1FDE87E90073FD88 /* early_kalloc.c in Sources */,
+				7C86F26A1FEE1DAA00974230 /* kdbg.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,10 +532,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/async_wake_ios/the_fun_part",
 					"$(PROJECT_DIR)/C0F3/V0RTEX",
+					"$(PROJECT_DIR)/C0F3/extra_recipe",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					IOKit,
+					"-pagezero_size",
+					0x16000,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.C0F3.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -628,10 +561,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/async_wake_ios/the_fun_part",
 					"$(PROJECT_DIR)/C0F3/V0RTEX",
+					"$(PROJECT_DIR)/C0F3/extra_recipe",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					IOKit,
+					"-pagezero_size",
+					0x16000,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.C0F3.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";

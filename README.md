@@ -32,3 +32,4 @@ People who helped make **C0F3** possible
 | Xerub                    | Jake James      |
 | Ben Sparkes (PsychoTea)  | Omar Mohammad   |
 | Viktor Oreshkin (Stek29) | Mason Shmadul   |
+| Abraham Masri            |                 |

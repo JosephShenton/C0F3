@@ -571,7 +571,7 @@
         <!--async_wake Jailbreaking-->
         <scene sceneID="kOx-DS-YmI">
             <objects>
-                <viewController storyboardIdentifier="async_jailbreaking" title="async_wake Jailbreaking" id="Vug-E6-eO9" customClass="asyncJailbreakViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="async_jailbreaking" title="async_wake Jailbreaking" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vug-E6-eO9" customClass="asyncJailbreakViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pzm-xY-bew">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -613,6 +613,7 @@
                     </view>
                     <connections>
                         <segue destination="Ax0-Qz-6ca" kind="custom" identifier="async_jailbroken" customClass="forwardSegue" id="cNn-l8-NNh"/>
+                        <segue destination="wKX-oT-3S1" kind="custom" identifier="async_failed_segue" customClass="forwardSegue" id="WPn-3p-t2C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CwX-aF-A2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -685,7 +686,7 @@
         <!--async_wake Jailbroken-->
         <scene sceneID="UIa-Z7-Fju">
             <objects>
-                <viewController storyboardIdentifier="async_jailbroken" title="async_wake Jailbroken" id="Ax0-Qz-6ca" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="async_jailbroken" title="async_wake Jailbroken" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ax0-Qz-6ca" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RCF-nI-dkr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -741,6 +742,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2l-fg-FyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="908" y="-555.47226386806597"/>
+        </scene>
+        <!--async_wake Jailbreak Failed-->
+        <scene sceneID="P4I-Jp-bQU">
+            <objects>
+                <viewController storyboardIdentifier="async_failed" title="async_wake Jailbreak Failed" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wKX-oT-3S1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ofT-qU-fM1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="async_wake | 11.0 - 11.1.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b9-g6-BGR">
+                                <rect key="frame" x="16" y="562" width="343" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C0F3 has failed to jailbreak your device!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000596046448" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kgx-8T-JZy">
+                                <rect key="frame" x="16" y="60.5" width="343" height="132.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="37"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C0F3 Logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Iq-ZB-jFF">
+                                <rect key="frame" x="97" y="225" width="181" height="237"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="181" id="3NA-CE-zUU"/>
+                                    <constraint firstAttribute="height" constant="237" id="eEI-am-Ogf"/>
+                                    <constraint firstAttribute="width" secondItem="2Iq-ZB-jFF" secondAttribute="height" multiplier="181:237" id="oFt-U9-rAY"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-qG-CsK">
+                                <rect key="frame" x="16" y="602" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                <state key="normal" title="Try Again"/>
+                                <connections>
+                                    <segue destination="4dg-7B-U00" kind="custom" customClass="forwardSegue" id="lKS-hN-yha"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kgx-8T-JZy" firstAttribute="leading" secondItem="kw0-vH-bWP" secondAttribute="leading" constant="16" id="8Sz-Z6-7Ex"/>
+                            <constraint firstItem="2b9-g6-BGR" firstAttribute="leading" secondItem="kw0-vH-bWP" secondAttribute="leading" constant="16" id="GZ4-Ke-1RA"/>
+                            <constraint firstItem="kw0-vH-bWP" firstAttribute="bottom" secondItem="c0o-qG-CsK" secondAttribute="bottom" constant="35" id="OVe-ND-VhP"/>
+                            <constraint firstItem="kw0-vH-bWP" firstAttribute="bottom" secondItem="2b9-g6-BGR" secondAttribute="bottom" constant="83" id="Occ-28-pd6"/>
+                            <constraint firstItem="kgx-8T-JZy" firstAttribute="top" secondItem="kw0-vH-bWP" secondAttribute="top" constant="40.5" id="Qo0-dk-GOp"/>
+                            <constraint firstItem="2Iq-ZB-jFF" firstAttribute="centerX" secondItem="kw0-vH-bWP" secondAttribute="centerX" id="RUG-uM-eNg"/>
+                            <constraint firstItem="c0o-qG-CsK" firstAttribute="top" secondItem="2b9-g6-BGR" secondAttribute="bottom" constant="18" id="U6Y-Ia-yzU"/>
+                            <constraint firstItem="kw0-vH-bWP" firstAttribute="trailing" secondItem="c0o-qG-CsK" secondAttribute="trailing" constant="16" id="VMy-gC-XC4"/>
+                            <constraint firstItem="kw0-vH-bWP" firstAttribute="trailing" secondItem="kgx-8T-JZy" secondAttribute="trailing" constant="16" id="XTw-Ye-xvc"/>
+                            <constraint firstItem="kw0-vH-bWP" firstAttribute="trailing" secondItem="2b9-g6-BGR" secondAttribute="trailing" constant="16" id="a23-Fh-Dox"/>
+                            <constraint firstItem="c0o-qG-CsK" firstAttribute="leading" secondItem="kw0-vH-bWP" secondAttribute="leading" constant="16" id="bXb-pr-Ghg"/>
+                            <constraint firstItem="2Iq-ZB-jFF" firstAttribute="centerY" secondItem="kw0-vH-bWP" secondAttribute="centerY" id="izK-T0-Dkk"/>
+                            <constraint firstItem="2Iq-ZB-jFF" firstAttribute="top" secondItem="kgx-8T-JZy" secondAttribute="bottom" constant="32" id="xTw-V2-4qc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kw0-vH-bWP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZq-xx-pC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1681" y="-555"/>
         </scene>
     </scenes>
     <resources>
