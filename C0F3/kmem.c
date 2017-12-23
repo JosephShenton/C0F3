@@ -54,7 +54,7 @@ void prepare_rk_via_kmem_read_port(mach_port_t port) {
   kmem_read_port = port;
 }
 
-extern mach_port_t tfp0;
+mach_port_t tfp0 = MACH_PORT_NULL;
 void prepare_rwk_via_tfp0(mach_port_t port) {
   tfp0 = port;
 }
@@ -99,6 +99,7 @@ uint32_t rk32_via_tfp0(uint64_t kaddr) {
   kern_return_t err;
   uint32_t val = 0;
   mach_vm_size_t outsize = 0;
+	
   err = mach_vm_read_overwrite(tfp0,
                                (mach_vm_address_t)kaddr,
                                (mach_vm_size_t)sizeof(uint32_t),
@@ -137,10 +138,6 @@ uint64_t rk64(uint64_t kaddr) {
   uint64_t lower = rk32(kaddr);
   uint64_t higher = rk32(kaddr+4);
   uint64_t full = ((higher<<32) | lower);
-    
-    if(lower == 0 && higher == 0)
-        return -1; // failed
-    
   return full;
 }
 
@@ -165,6 +162,7 @@ void wkbuffer(uint64_t kaddr, void* buffer, uint32_t length) {
 
 void rkbuffer(uint64_t kaddr, void* buffer, uint32_t length) {
   kern_return_t err;
+  uint32_t val = 0;
   mach_vm_size_t outsize = 0;
   err = mach_vm_read_overwrite(tfp0,
                                (mach_vm_address_t)kaddr,
@@ -277,21 +275,21 @@ uint64_t kmem_alloc_wired(uint64_t size) {
 }
 
 void kmem_free(uint64_t kaddr, uint64_t size) {
-//
-//  if (tfp0 == MACH_PORT_NULL) {
-//    printf("attempt to deallocate kernel memory before any kernel memory write primitives available\n");
-//    sleep(3);
-//    return;
-//  }
-//
-//  kern_return_t err;
-//  mach_vm_size_t ksize = round_page_kernel(size);
-//  err = mach_vm_deallocate(tfp0, kaddr, ksize);
-//  if (err != KERN_SUCCESS) {
-//    printf("unable to deallocate kernel memory via tfp0: %s %x\n", mach_error_string(err), err);
-//    sleep(3);
-//    return;
-//  }
+  return;
+  if (tfp0 == MACH_PORT_NULL) {
+    printf("attempt to deallocate kernel memory before any kernel memory write primitives available\n");
+    sleep(3);
+    return;
+  }
+  
+  kern_return_t err;
+  mach_vm_size_t ksize = round_page_kernel(size);
+  err = mach_vm_deallocate(tfp0, kaddr, ksize);
+  if (err != KERN_SUCCESS) {
+    printf("unable to deallocate kernel memory via tfp0: %s %x\n", mach_error_string(err), err);
+    sleep(3);
+    return;
+  }
 }
 
 void kmem_protect(uint64_t kaddr, uint32_t size, int prot) {

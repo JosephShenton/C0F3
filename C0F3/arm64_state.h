@@ -44,7 +44,7 @@ typedef struct arm_saved_state64 arm_saved_state64_t;
 (sizeof (arm_saved_state64_t)/sizeof(unsigned int)))
 
 struct arm_saved_state {
-  arm_state_hdr_t ash;
+	arm_state_hdr_t ash;
   union {
     struct arm_saved_state32 ss_32;
     struct arm_saved_state64 ss_64;
@@ -91,7 +91,7 @@ typedef struct arm_neon_saved_state64 arm_neon_saved_state64_t;
 (sizeof (arm_neon_saved_state64_t)/sizeof(unsigned int)))
 
 struct arm_neon_saved_state {
-  arm_state_hdr_t nsh;
+	arm_state_hdr_t nsh;
   union {
     struct arm_neon_saved_state32 ns_32;
     struct arm_neon_saved_state64 ns_64;
@@ -122,7 +122,7 @@ struct arm64_debug_state
 };
 
 struct arm_debug_aggregate_state {
-  arm_state_hdr_t          dsh;
+	arm_state_hdr_t          dsh;
   struct arm64_debug_state ds64;
 } __attribute__((aligned(16)));
 
