@@ -89,6 +89,7 @@ kern_return_t ret = KERN_SUCCESS;
             
             extern void start_jailbreakd(void);
             start_jailbreakd();
+            [self performSegueWithIdentifier:@"async_jailbroken" sender:self];
             //            [self kill_backboardd];
         });
     });

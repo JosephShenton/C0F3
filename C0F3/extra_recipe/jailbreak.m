@@ -263,7 +263,7 @@ kern_return_t unpack_bootstrap() {
     NSString *bootstrap_2_path = [execpath stringByAppendingPathComponent:@"bootstrap_2.tar"];
     
     BOOL should_install_cydia = !([[NSFileManager defaultManager] fileExistsAtPath:@"/Applications/Cydia.app"]);
-    if(should_install_cydia != YES) {
+    if(should_install_cydia == YES) {
 
         chdir("/");
         FILE *bootstrap = fopen([bootstrap_path UTF8String], "r");
@@ -287,6 +287,7 @@ kern_return_t unpack_bootstrap() {
 
         // NO to Cydia stashing
         open("/.cydia_no_stash", O_RDWR | O_CREAT);
+        open("/.C0F3_WAS_HERE", O_RDWR | O_CREAT);
 
         chmod("/private", 0777);
         chmod("/private/var", 0777);
