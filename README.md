@@ -30,6 +30,6 @@ People who helped make **C0F3** possible
 | Siguza                   | Sem Voigtlander |
 | NinjaPrawn               | Vincent Desmurs |
 | Xerub                    | Jake James      |
-| Ben Sparkes (PsychoTea)  | Omar Mohammad   |
+| Ben Sparkes (PsychoTea)  | Omar Tawfik (@BestTube_YT)   |
 | Viktor Oreshkin (Stek29) | Mason Shmadul   |
 | Abraham Masri            |                 |
