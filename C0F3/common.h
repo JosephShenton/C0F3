@@ -4,7 +4,7 @@
 #include <stdint.h>             // uint*_t
 #include <Foundation/Foundation.h>
 
-#define LOG(str, args...) do { NSLog(@str "\n", ##args); } while(0)
+#define LOG(str, args2...) do { NSLog(@str "\n", ##args2); } while(0)
 
 #ifdef __LP64__
 #   define ADDR "0x%016llx"

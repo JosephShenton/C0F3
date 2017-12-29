@@ -14,12 +14,12 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <mach-o/loader.h>
 
-task_t tfp0;
+task_t tfp02;
 uint64_t trust_cache;
 uint64_t amficache;
 
 void init_amfi(task_t task_for_port0) {
-    tfp0 = task_for_port0;
+    tfp02 = task_for_port0;
     trust_cache = find_trustcache();
     amficache = find_amficache();
     
@@ -32,21 +32,21 @@ void init_amfi(task_t task_for_port0) {
 // creds to xerub for grab_hashes (and ty for libjb update!)
 void trust_files(const char *path) {
     struct trust_mem mem;
-    mem.next = rk64(trust_cache);
+    mem.next = rk642(trust_cache);
     *(uint64_t *)&mem.uuid[0] = 0xabadbabeabadbabe;
     *(uint64_t *)&mem.uuid[8] = 0xabadbabeabadbabe;
     
-    grab_hashes(path, tfp0_kread, amficache, mem.next);
+    grab_hashes(path, tfp02_kread, amficache, mem.next);
     
     size_t length = (sizeof(mem) + numhash * 20 + 0xFFFF) & ~0xFFFF;
     
     uint64_t kernel_trust;
-    mach_vm_allocate(tfp0, (mach_vm_address_t *)&kernel_trust, length, VM_FLAGS_ANYWHERE);
+    mach_vm_allocate(tfp02, (mach_vm_address_t *)&kernel_trust, length, VM_FLAGS_ANYWHERE);
     
     mem.count = numhash;
-    kwrite(kernel_trust, &mem, sizeof(mem));
-    kwrite(kernel_trust + sizeof(mem), allhash, numhash * 20);
-    kwrite_uint64(trust_cache, kernel_trust);
+    kwrite2(kernel_trust, &mem, sizeof(mem));
+    kwrite2(kernel_trust + sizeof(mem), allhash, numhash * 20);
+    kwrite_uint642(trust_cache, kernel_trust);
     
     free(allhash);
     free(allkern);
@@ -56,7 +56,7 @@ void trust_files(const char *path) {
 }
 
 // creds to stek29(?)
-void inject_trust(const char *path) {
+void inject_trust2(const char *path) {
     typedef char hash_t[20];
     
     struct trust_chain {
@@ -68,33 +68,33 @@ void inject_trust(const char *path) {
     
     struct trust_chain fake_chain;
     
-    fake_chain.next = rk64(trust_cache);
+    fake_chain.next = rk642(trust_cache);
     *(uint64_t *)&fake_chain.uuid[0] = 0xabadbabeabadbabe;
     *(uint64_t *)&fake_chain.uuid[8] = 0xabadbabeabadbabe;
     fake_chain.count = 1;
     
-    uint8_t *codeDir = getCodeDirectory(path);
+    uint8_t *codeDir = getCodeDirectory2(path);
     if (codeDir == NULL) {
         printf("[amfi] was given null code dir for %s ! \n", path);
         return;
     }
     
-    uint8_t *hash = getSHA256(codeDir);
+    uint8_t *hash = getSHA2562(codeDir);
     memmove(fake_chain.hash[0], hash, 20);
     
     free(hash);
     
     uint64_t kernel_trust = 0;
-    mach_vm_allocate(tfp0, &kernel_trust, sizeof(fake_chain), VM_FLAGS_ANYWHERE);
+    mach_vm_allocate(tfp02, &kernel_trust, sizeof(fake_chain), VM_FLAGS_ANYWHERE);
     
-    kwrite(kernel_trust, &fake_chain, sizeof(fake_chain));
-    wk64(trust_cache, kernel_trust);
+    kwrite2(kernel_trust, &fake_chain, sizeof(fake_chain));
+    wk642(trust_cache, kernel_trust);
     
     printf("[amfi] signed %s \n", path);
 }
 
 // creds to nullpixel
-uint8_t *getCodeDirectory(const char* name) {
+uint8_t *getCodeDirectory2(const char* name) {
     FILE* fd = fopen(name, "r");
     
     struct mach_header_64 mh;
@@ -125,15 +125,15 @@ uint8_t *getCodeDirectory(const char* name) {
 }
 
 // creds to nullpixel
-uint8_t *getSHA256(uint8_t* code_dir) {
+uint8_t *getSHA2562(uint8_t* code_dir) {
     uint8_t *out = malloc(CC_SHA256_DIGEST_LENGTH);
     
     uint32_t* code_dir_int = (uint32_t*)code_dir;
     
     uint32_t realsize = 0;
     for (int j = 0; j < 10; j++) {
-        if (swap_uint32(code_dir_int[j]) == 0xfade0c02) {
-            realsize = swap_uint32(code_dir_int[j+1]);
+        if (swap_uint322(code_dir_int[j]) == 0xfade0c02) {
+            realsize = swap_uint322(code_dir_int[j+1]);
             code_dir += 4*j;
         }
     }
@@ -143,7 +143,7 @@ uint8_t *getSHA256(uint8_t* code_dir) {
     return out;
 }
 
-uint32_t swap_uint32(uint32_t val) {
+uint32_t swap_uint322(uint32_t val) {
     val = ((val << 8) & 0xFF00FF00) | ((val >> 8) & 0xFF00FF);
     return (val << 16) | (val >> 16);
 }

