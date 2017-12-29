@@ -158,9 +158,9 @@ kptr_t self_proc;
     
     {
         // fuck up amfi
-        inject_trust2("/bin/sh");
-        inject_trust2("/C0F3/dropbear");
-        inject_trust2("/C0F3/tar");
+        inject_trust("/bin/sh");
+        inject_trust("/C0F3/dropbear");
+        inject_trust("/C0F3/tar");
     }
     
     {
@@ -248,22 +248,22 @@ int execprog(uint64_t kern_ucred, const char *prog, const char* args[]) {
         int tries = 3;
         while (tries-- > 0) {
             sleep(1);
-            uint64_t proc = rk642(kslide + 0xFFFFFFF0075E66F0);
+            uint64_t proc = rk64(kslide + 0xFFFFFFF0075E66F0);
             while (proc) {
-                uint32_t pid = rk322(proc + 0x10);
+                uint32_t pid = rk32(proc + 0x10);
                 if (pid == pd) {
-                    uint32_t csflags = rk322(proc + 0x2a8);
+                    uint32_t csflags = rk32(proc + 0x2a8);
                     csflags = (csflags | CS_PLATFORM_BINARY | CS_INSTALLER | CS_GET_TASK_ALLOW) & ~(CS_RESTRICT  | CS_HARD);
-                    wk322(proc + 0x2a8, csflags);
+                    wk32(proc + 0x2a8, csflags);
                     tries = 0;
                     
                     // i don't think this bit is implemented properly
-                    uint64_t self_ucred = rk642(proc + 0x100);
-                    uint32_t selfcred_temp = rk322(kern_ucred + 0x78);
-                    wk322(self_ucred + 0x78, selfcred_temp);
+                    uint64_t self_ucred = rk64(proc + 0x100);
+                    uint32_t selfcred_temp = rk32(kern_ucred + 0x78);
+                    wk32(self_ucred + 0x78, selfcred_temp);
                     
                     for (int i = 0; i < 12; i++) {
-                        wk322(self_ucred + 0x18 + (i * sizeof(uint32_t)), 0);
+                        wk32(self_ucred + 0x18 + (i * sizeof(uint32_t)), 0);
                     }
                     
                     printf("gave elevated perms to pid %d \n", pid);
@@ -274,7 +274,7 @@ int execprog(uint64_t kern_ucred, const char *prog, const char* args[]) {
                     // kcall(find_bzero(), 2, self_ucred + 0x18, 12);
                     break;
                 }
-                proc = rk642(proc);
+                proc = rk64(proc);
             }
         }
     }
@@ -332,22 +332,22 @@ int execprog_clean(uint64_t kern_ucred, const char *prog, const char* args[]) {
         while (tries-- > 0) {
             sleep(1);
             // this needs to be moved to an offset VVVVVVVVVVVVV
-            uint64_t proc = rk642(kslide + 0xFFFFFFF0075E66F0);
+            uint64_t proc = rk64(kslide + 0xFFFFFFF0075E66F0);
             while (proc) {
-                uint32_t pid = rk322(proc + 0x10);
+                uint32_t pid = rk32(proc + 0x10);
                 if (pid == pd) {
-                    uint32_t csflags = rk322(proc + 0x2a8);
+                    uint32_t csflags = rk32(proc + 0x2a8);
                     csflags = (csflags | CS_PLATFORM_BINARY | CS_INSTALLER | CS_GET_TASK_ALLOW) & ~(CS_RESTRICT  | CS_HARD);
-                    wk322(proc + 0x2a8, csflags);
+                    wk32(proc + 0x2a8, csflags);
                     tries = 0;
                     
                     // i don't think this bit is implemented properly
-                    uint64_t self_ucred = rk642(proc + 0x100);
-                    uint32_t selfcred_temp = rk322(kern_ucred + 0x78);
-                    wk322(self_ucred + 0x78, selfcred_temp);
+                    uint64_t self_ucred = rk64(proc + 0x100);
+                    uint32_t selfcred_temp = rk32(kern_ucred + 0x78);
+                    wk32(self_ucred + 0x78, selfcred_temp);
                     
                     for (int i = 0; i < 12; i++) {
-                        wk322(self_ucred + 0x18 + (i * sizeof(uint32_t)), 0);
+                        wk32(self_ucred + 0x18 + (i * sizeof(uint32_t)), 0);
                     }
                     
                     // original stuff, rewritten above using v0rtex stuff
@@ -356,7 +356,7 @@ int execprog_clean(uint64_t kern_ucred, const char *prog, const char* args[]) {
                     // kcall(find_bzero(), 2, self_ucred + 0x18, 12);
                     break;
                 }
-                proc = rk642(proc);
+                proc = rk64(proc);
             }
         }
     }

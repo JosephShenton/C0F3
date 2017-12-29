@@ -6,7 +6,7 @@
 
 /* mount ********************************************************************/
 
-struct hfs_mount_args2 {
+struct hfs_mount_args {
 	char	*fspec;			/* block special device to mount */
 	uid_t	hfs_uid;		/* uid that owns hfs files (standard HFS only) */
 	gid_t	hfs_gid;		/* gid that owns hfs files (standard HFS only) */
@@ -17,7 +17,7 @@ struct hfs_mount_args2 {
 	int     journal_tbuffer_size;   /* size in bytes of the journal transaction buffer */
 	int		journal_flags;          /* flags to pass to journal_open/create */
 	int		journal_disable;        /* don't use journaling (potentially dangerous) */
-} args2;
+} args;
 
 /* libhfs *******************************************************************/
 

@@ -22,6 +22,9 @@
 		7CA2D63F1FF62A6500A92440 /* root-rw.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6341FF62A6200A92440 /* root-rw.m */; };
 		7CA2D6401FF62A6500A92440 /* symbols2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6351FF62A6200A92440 /* symbols2.m */; };
 		7CA2D6411FF62A6500A92440 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6381FF62A6400A92440 /* patchfinder64.c */; };
+		7CA2D6431FF6F9BB00A92440 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46D1FE2B4E800402F32 /* patchfinder64.c */; };
+		7CA2D6441FF6F9C300A92440 /* fun.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46A1FE272CF00402F32 /* fun.c */; };
+		7CA2D6451FF6F9C700A92440 /* fun_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B64C31FE5252F00EDF749 /* fun_objc.m */; };
 		7CC525131FEB5A4D00AD1614 /* fateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525121FEB5A4D00AD1614 /* fateViewController.m */; };
 		7CC525171FEB5BEC00AD1614 /* forwardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525161FEB5BEC00AD1614 /* forwardSegue.m */; };
 		7CC5251A1FEB5C0600AD1614 /* backwardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC525191FEB5C0600AD1614 /* backwardSegue.m */; };
@@ -46,9 +49,6 @@
 		B0EF11141FCC6F9C00C1D14E /* kcall.c in Sources */ = {isa = PBXBuildFile; fileRef = B0EF11121FCC6F9C00C1D14E /* kcall.c */; };
 		B0EF11171FCC784B00C1D14E /* symbols.c in Sources */ = {isa = PBXBuildFile; fileRef = B0EF11151FCC784B00C1D14E /* symbols.c */; };
 		B0F5AA3F1FDE87E90073FD88 /* early_kalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = B0F5AA3D1FDE87E80073FD88 /* early_kalloc.c */; };
-		BC8B64C41FE5252F00EDF749 /* fun_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B64C31FE5252F00EDF749 /* fun_objc.m */; };
-		BC8EE46C1FE272CF00402F32 /* fun.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46A1FE272CF00402F32 /* fun.c */; };
-		BC8EE46F1FE2B4E800402F32 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46D1FE2B4E800402F32 /* patchfinder64.c */; };
 		BC9969021FE6659C00A4EDB9 /* test_fsigned.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC9969011FE6659C00A4EDB9 /* test_fsigned.plist */; };
 		BC9969041FE66CE200A4EDB9 /* ent.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC9969031FE66CE200A4EDB9 /* ent.plist */; };
 		BCEEF6EF1FE88FE6009B9A8B /* test_fsigned in Resources */ = {isa = PBXBuildFile; fileRef = BCEEF6EE1FE88FE6009B9A8B /* test_fsigned */; };
@@ -440,6 +440,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA2D6451FF6F9C700A92440 /* fun_objc.m in Sources */,
+				7CA2D6441FF6F9C300A92440 /* fun.c in Sources */,
+				7CA2D6431FF6F9BB00A92440 /* patchfinder64.c in Sources */,
 				7CA2D6411FF62A6500A92440 /* patchfinder64.c in Sources */,
 				7CA2D6401FF62A6500A92440 /* symbols2.m in Sources */,
 				7CA2D63E1FF62A6500A92440 /* amfi.m in Sources */,
@@ -447,9 +450,7 @@
 				B0EF11171FCC784B00C1D14E /* symbols.c in Sources */,
 				7CA2D63F1FF62A6500A92440 /* root-rw.m in Sources */,
 				B07A02411FB09B6F0018ACE5 /* ViewController.m in Sources */,
-				BC8EE46C1FE272CF00402F32 /* fun.c in Sources */,
 				B04E25091FCD6DB300F09CCE /* kutils.c in Sources */,
-				BC8B64C41FE5252F00EDF749 /* fun_objc.m in Sources */,
 				7CC5252B1FEB5E6D00AD1614 /* asyncJailbreakViewController.m in Sources */,
 				7CC5252E1FEB5E7B00AD1614 /* v0rtexJailbreakViewController.m in Sources */,
 				7CC5251A1FEB5C0600AD1614 /* backwardSegue.m in Sources */,
@@ -458,7 +459,6 @@
 				B07A02541FB09C3D0018ACE5 /* async_wake.c in Sources */,
 				7CA2D63C1FF62A6500A92440 /* kernel.m in Sources */,
 				B07A023E1FB09B6F0018ACE5 /* AppDelegate.m in Sources */,
-				BC8EE46F1FE2B4E800402F32 /* patchfinder64.c in Sources */,
 				B003EB3B1FC58F4900C58441 /* kdbg.c in Sources */,
 				7CC525251FEB5E3400AD1614 /* asyncConfirmViewController.m in Sources */,
 				7CC525281FEB5E4200AD1614 /* v0rtexConfirmViewController.m in Sources */,
@@ -605,6 +605,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6578A826QL;
 				ENABLE_BITCODE = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/C0F3/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -632,6 +633,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6578A826QL;
 				ENABLE_BITCODE = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/C0F3/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

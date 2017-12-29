@@ -10,8 +10,8 @@
 
 void init_amfi(task_t task_for_port0);
 void trust_files(const char *path);
-void inject_trust2(const char *path);
+void inject_trust(const char *path);
 
-uint8_t *getCodeDirectory2(const char* name);
-uint8_t *getSHA2562(uint8_t* code_dir);
-uint32_t swap_uint322(uint32_t val);
+uint8_t *getCodeDirectory(const char* name);
+uint8_t *getSHA256(uint8_t* code_dir);
+uint32_t swap_uint32(uint32_t val);
