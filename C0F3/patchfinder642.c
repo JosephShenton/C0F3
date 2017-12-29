@@ -424,7 +424,7 @@ follow_cbz(const uint8_t *buf, addr_t cbz)
 size_t kread(uint64_t where, void *p, size_t size);
 #endif
 
-static task_t tfp0;
+static task_t tfp02;
 
 static uint8_t *kernel = NULL;
 static size_t kernel_size = 0;
@@ -445,7 +445,7 @@ static addr_t kernel_delta = 0;
 int
 init_patchfinder(task_t taskfp0, addr_t base, const char *filename)
 {
-    tfp0 = taskfp0;
+    tfp02 = taskfp0;
     
     size_t rv;
     uint8_t buf[0x4000];
@@ -456,11 +456,11 @@ init_patchfinder(task_t taskfp0, addr_t base, const char *filename)
     addr_t max = 0;
     int is64 = 0;
     
-    init_kernel(taskfp0);
+    init_kernel2(taskfp0);
 
 #ifdef __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__
 #define close(f)
-    rv = tfp0_kread(base, buf, sizeof(buf));
+    rv = tfp02_kread(base, buf, sizeof(buf));
     if (rv != sizeof(buf)) {
         printf("failed kread, got size: %zu \n", rv);
         return -1;
@@ -473,7 +473,7 @@ init_patchfinder(task_t taskfp0, addr_t base, const char *filename)
         return -1;
     }
 
-    rv = rk32_via_tfp0(tfp0, fd);
+    rv = rk32_via_tfp0(tfp02, fd);
     //rv = read(fd, buf, sizeof(buf));
     if (rv != sizeof(buf)) {
         close(fd);
@@ -562,7 +562,7 @@ init_patchfinder(task_t taskfp0, addr_t base, const char *filename)
         return -1;
     }
     
-    rv = tfp0_kread(kerndumpbase, kernel, kernel_size);
+    rv = tfp02_kread(kerndumpbase, kernel, kernel_size);
     // rv = kread(kerndumpbase, kernel, kernel_size);
     if (rv != kernel_size) {
         free(kernel);
@@ -612,7 +612,7 @@ init_patchfinder(task_t taskfp0, addr_t base, const char *filename)
 }
 
 void
-term_kernel(void)
+term_kernel2(void)
 {
     free(kernel);
 }
@@ -649,7 +649,7 @@ find_register_value(addr_t where, int reg)
 }
 
 addr_t
-find_reference(addr_t to, int n, int prelink)
+find_reference2(addr_t to, int n, int prelink)
 {
     addr_t ref, end;
     addr_t base = xnucore_base;
@@ -674,7 +674,7 @@ find_reference(addr_t to, int n, int prelink)
 }
 
 addr_t
-find_strref(const char *string, int n, int prelink)
+find_strref2(const char *string, int n, int prelink)
 {
     uint8_t *str;
     addr_t base = cstring_base;
@@ -687,14 +687,14 @@ find_strref(const char *string, int n, int prelink)
     if (!str) {
         return 0;
     }
-    return find_reference(str - kernel + kerndumpbase, n, prelink);
+    return find_reference2(str - kernel + kerndumpbase, n, prelink);
 }
 
 addr_t
 find_gPhysBase(void)
 {
     addr_t ret, val;
-    addr_t ref = find_strref("\"pmap_map_high_window_bd: insufficient pages", 1, 0);
+    addr_t ref = find_strref2("\"pmap_map_high_window_bd: insufficient pages", 1, 0);
     if (!ref) {
         return 0;
     }
@@ -714,7 +714,7 @@ addr_t
 find_kernel_pmap(void)
 {
     addr_t call, bof, val;
-    addr_t ref = find_strref("\"pmap_map_bd\"", 1, 0);
+    addr_t ref = find_strref2("\"pmap_map_bd\"", 1, 0);
     if (!ref) {
         return 0;
     }
@@ -738,7 +738,7 @@ addr_t
 find_amfiret(void)
 {
     addr_t ret;
-    addr_t ref = find_strref("AMFI: hook..execve() killing pid %u: %s\n", 1, 1);
+    addr_t ref = find_strref2("AMFI: hook..execve() killing pid %u: %s\n", 1, 1);
     if (!ref) {
         return 0;
     }
@@ -774,7 +774,7 @@ addr_t
 find_amfi_memcmpstub(void)
 {
     addr_t call, dest, reg;
-    addr_t ref = find_strref("%s: Possible race detected. Rejecting.", 1, 1);
+    addr_t ref = find_strref2("%s: Possible race detected. Rejecting.", 1, 1);
     if (!ref) {
         return 0;
     }
@@ -815,7 +815,7 @@ addr_t
 find_lwvm_mapio_patch(void)
 {
     addr_t call, dest, reg;
-    addr_t ref = find_strref("_mapForIO", 1, 1);
+    addr_t ref = find_strref2("_mapForIO", 1, 1);
     if (!ref) {
         return 0;
     }
@@ -843,7 +843,7 @@ addr_t
 find_lwvm_mapio_newj(void)
 {
     addr_t call;
-    addr_t ref = find_strref("_mapForIO", 1, 1);
+    addr_t ref = find_strref2("_mapForIO", 1, 1);
     if (!ref) {
         return 0;
     }
@@ -939,9 +939,9 @@ find_sysbootnonce(void)
     return 0;
 }
 
-uint64_t find_copyout(void) {
+uint64_t find_copyout2(void) {
     // Find the first reference to the string
-    addr_t ref = find_strref("\"%s(%p, %p, %lu) - transfer too large\"", 2, 0);
+    addr_t ref = find_strref2("\"%s(%p, %p, %lu) - transfer too large\"", 2, 0);
     if (!ref) {
         return 0;
     }
@@ -962,7 +962,7 @@ uint64_t find_copyout(void) {
     return start + kerndumpbase;
 }
 
-uint64_t find_bzero(void) {
+uint64_t find_bzero2(void) {
     // Just find SYS #3, c7, c4, #1, X3, then get the start of that function
     addr_t off;
     uint32_t *k;
@@ -982,7 +982,7 @@ uint64_t find_bzero(void) {
     return start + kerndumpbase;
 }
 
-addr_t find_bcopy(void) {
+addr_t find_bcopy2(void) {
     // Jumps straight into memmove after switching x0 and x1 around
     // Guess we just find the switch and that's it
     addr_t off;
@@ -1002,9 +1002,9 @@ addr_t find_bcopy(void) {
     return 0;
 }
 
-addr_t find_trustcache(void) {
+addr_t find_trustcache2(void) {
     addr_t call, func, val;
-    addr_t ref = find_strref("com.apple.MobileFileIntegrity", 1, 1);
+    addr_t ref = find_strref2("com.apple.MobileFileIntegrity", 1, 1);
     if (!ref) {
         printf("didnt find string ref\n");
         return 0;
@@ -1028,9 +1028,9 @@ addr_t find_trustcache(void) {
     return val + kerndumpbase;
 }
 
-addr_t find_amficache(void) {
+addr_t find_amficache2(void) {
     addr_t call, func, bof, val;
-    addr_t ref = find_strref("com.apple.MobileFileIntegrity", 1, 1);
+    addr_t ref = find_strref2("com.apple.MobileFileIntegrity", 1, 1);
     if (!ref) {
         printf("didnt find string ref\n");
         return 0;
@@ -1070,7 +1070,7 @@ addr_t
 find_AGXCommandQueue_vtable(void)
 {
     addr_t val, str8;
-    addr_t ref = find_strref("AGXCommandQueue", 1, 1);
+    addr_t ref = find_strref2("AGXCommandQueue", 1, 1);
     if (!ref) {
         return 0;
     }
@@ -1078,7 +1078,7 @@ find_AGXCommandQueue_vtable(void)
     if (!val) {
         return 0;
     }
-    ref = find_reference(val, 1, 1);
+    ref = find_reference2(val, 1, 1);
     if (!ref) {
         return 0;
     }
@@ -1095,10 +1095,10 @@ find_AGXCommandQueue_vtable(void)
 }
 
 addr_t
-find_allproc(void)
+find_allproc2(void)
 {
     addr_t val, bof, str8;
-    addr_t ref = find_strref("\"pgrp_add : pgrp is dead adding process\"", 1, 0);
+    addr_t ref = find_strref2("\"pgrp_add : pgrp is dead adding process\"", 1, 0);
     if (!ref) {
         return 0;
     }
@@ -1205,7 +1205,7 @@ main(int argc, char **argv)
     int rv;
     addr_t base = 0;
     const addr_t vm_kernel_slide = 0;
-    rv = init_kernel(base, (argc > 1) ? argv[1] : "krnl");
+    rv = init_kernel2(base, (argc > 1) ? argv[1] : "krnl");
     assert(rv == 0);
 
     addr_t AGXCommandQueue_vtable = find_AGXCommandQueue_vtable();
@@ -1216,7 +1216,7 @@ main(int argc, char **argv)
     printf("\t\t\t<string>0x%llx</string>\n", OSSerializer_serialize);
     addr_t k_uuid_copy = find_symbol("_uuid_copy");
     printf("\t\t\t<string>0x%llx</string>\n", k_uuid_copy);
-    addr_t allproc = find_allproc();
+    addr_t allproc = find_allproc2();
     printf("\t\t\t<string>0x%llx</string>\n", allproc);
     addr_t realhost = find_realhost(find_symbol("_host_priv_self") + vm_kernel_slide);
     printf("\t\t\t<string>0x%llx</string>\n", realhost - vm_kernel_slide);
@@ -1225,7 +1225,7 @@ main(int argc, char **argv)
 
     assert(find_symbol("_rootvnode") == find_gPhysBase() + 0x38 - vm_kernel_slide);
 
-    term_kernel();
+    term_kernel2();
     return 0;
 }*/
 
