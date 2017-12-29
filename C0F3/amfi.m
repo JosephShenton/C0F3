@@ -6,7 +6,7 @@
 //  Copyright © 2017 Sticktron. All rights reserved.
 //
 
-#import "patchfinder64.h"
+#import "patchfinder642.h"
 #import "libjb.h"
 #import "kernel.h"
 #import "amfi.h"

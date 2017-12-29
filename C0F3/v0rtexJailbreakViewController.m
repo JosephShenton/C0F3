@@ -12,7 +12,7 @@
 #include "symbols2.h"
 #include "root-rw.h"
 #include "libjb.h"
-#include "patchfinder64.h"
+#include "patchfinder642.h"
 #include "v0rtex.h"
 #include "amfi.h"
 #include <sys/spawn.h>

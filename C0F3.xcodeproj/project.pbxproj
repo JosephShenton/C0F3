@@ -21,7 +21,7 @@
 		7CA2D63E1FF62A6500A92440 /* amfi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6331FF62A6100A92440 /* amfi.m */; };
 		7CA2D63F1FF62A6500A92440 /* root-rw.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6341FF62A6200A92440 /* root-rw.m */; };
 		7CA2D6401FF62A6500A92440 /* symbols2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6351FF62A6200A92440 /* symbols2.m */; };
-		7CA2D6411FF62A6500A92440 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6381FF62A6400A92440 /* patchfinder64.c */; };
+		7CA2D6411FF62A6500A92440 /* patchfinder642.c in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6381FF62A6400A92440 /* patchfinder642.c */; };
 		7CA2D6431FF6F9BB00A92440 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46D1FE2B4E800402F32 /* patchfinder64.c */; };
 		7CA2D6441FF6F9C300A92440 /* fun.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46A1FE272CF00402F32 /* fun.c */; };
 		7CA2D6451FF6F9C700A92440 /* fun_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B64C31FE5252F00EDF749 /* fun_objc.m */; };
@@ -66,7 +66,7 @@
 		7CA2D61A1FF628AE00A92440 /* bash */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = bash; sourceTree = "<group>"; };
 		7CA2D61B1FF628AE00A92440 /* launchctl2 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = launchctl2; sourceTree = "<group>"; };
 		7CA2D61C1FF628B100A92440 /* bootstrap.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap.tar; sourceTree = "<group>"; };
-		7CA2D62F1FF62A6100A92440 /* patchfinder64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = patchfinder64.h; sourceTree = "<group>"; };
+		7CA2D62F1FF62A6100A92440 /* patchfinder642.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = patchfinder642.h; sourceTree = "<group>"; };
 		7CA2D6301FF62A6100A92440 /* kernel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kernel.m; sourceTree = "<group>"; };
 		7CA2D6311FF62A6100A92440 /* v0rtex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v0rtex.m; sourceTree = "<group>"; };
 		7CA2D6321FF62A6100A92440 /* root-rw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "root-rw.h"; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		7CA2D6351FF62A6200A92440 /* symbols2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = symbols2.m; sourceTree = "<group>"; };
 		7CA2D6361FF62A6300A92440 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		7CA2D6371FF62A6300A92440 /* amfi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amfi.h; sourceTree = "<group>"; };
-		7CA2D6381FF62A6400A92440 /* patchfinder64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = patchfinder64.c; sourceTree = "<group>"; };
+		7CA2D6381FF62A6400A92440 /* patchfinder642.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = patchfinder642.c; sourceTree = "<group>"; };
 		7CA2D6391FF62A6400A92440 /* libjb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libjb.h; sourceTree = "<group>"; };
 		7CA2D63A1FF62A6400A92440 /* v0rtex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v0rtex.h; sourceTree = "<group>"; };
 		7CA2D63B1FF62A6400A92440 /* symbols2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symbols2.h; sourceTree = "<group>"; };
@@ -254,8 +254,8 @@
 				7CA2D6421FF62A8800A92440 /* kernel.h */,
 				7CA2D6301FF62A6100A92440 /* kernel.m */,
 				7CA2D6391FF62A6400A92440 /* libjb.h */,
-				7CA2D6381FF62A6400A92440 /* patchfinder64.c */,
-				7CA2D62F1FF62A6100A92440 /* patchfinder64.h */,
+				7CA2D6381FF62A6400A92440 /* patchfinder642.c */,
+				7CA2D62F1FF62A6100A92440 /* patchfinder642.h */,
 				7CA2D6321FF62A6100A92440 /* root-rw.h */,
 				7CA2D6341FF62A6200A92440 /* root-rw.m */,
 				7CA2D63B1FF62A6400A92440 /* symbols2.h */,
@@ -443,7 +443,7 @@
 				7CA2D6451FF6F9C700A92440 /* fun_objc.m in Sources */,
 				7CA2D6441FF6F9C300A92440 /* fun.c in Sources */,
 				7CA2D6431FF6F9BB00A92440 /* patchfinder64.c in Sources */,
-				7CA2D6411FF62A6500A92440 /* patchfinder64.c in Sources */,
+				7CA2D6411FF62A6500A92440 /* patchfinder642.c in Sources */,
 				7CA2D6401FF62A6500A92440 /* symbols2.m in Sources */,
 				7CA2D63E1FF62A6500A92440 /* amfi.m in Sources */,
 				B003EB351FC583CB00C58441 /* kmem.c in Sources */,
@@ -605,6 +605,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6578A826QL;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = NO;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/C0F3/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
