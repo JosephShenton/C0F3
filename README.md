@@ -33,3 +33,4 @@ People who helped make **C0F3** possible
 | Ben Sparkes (PsychoTea)  | Omar Tawfik (@BestTube_YT)   |
 | Viktor Oreshkin (Stek29) | Mason Shmadul   |
 | Abraham Masri            | CoolStarORG     |
+| Sticktron                |                 |
