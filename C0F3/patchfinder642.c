@@ -456,11 +456,11 @@ init_patchfinder(task_t taskfp0, addr_t base, const char *filename)
     addr_t max = 0;
     int is64 = 0;
     
-    init_kernel2(taskfp0);
+    init_kernel(taskfp0);
 
 #ifdef __ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__
 #define close(f)
-    rv = tfp02_kread(base, buf, sizeof(buf));
+    rv = tfp0_kread(base, buf, sizeof(buf));
     if (rv != sizeof(buf)) {
         printf("failed kread, got size: %zu \n", rv);
         return -1;
@@ -562,7 +562,7 @@ init_patchfinder(task_t taskfp0, addr_t base, const char *filename)
         return -1;
     }
     
-    rv = tfp02_kread(kerndumpbase, kernel, kernel_size);
+    rv = tfp0_kread(kerndumpbase, kernel, kernel_size);
     // rv = kread(kerndumpbase, kernel, kernel_size);
     if (rv != kernel_size) {
         free(kernel);

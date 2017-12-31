@@ -13,6 +13,15 @@
 		7C66F98D1FF723CF0008ED26 /* gnubinpack.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */; };
 		7C66F98E1FF724940008ED26 /* bootstrap.dmg in Resources */ = {isa = PBXBuildFile; fileRef = BC71C3741FE60FF0004C7C42 /* bootstrap.dmg */; };
 		7C66F9901FF73B440008ED26 /* jjjj.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C66F98F1FF73B440008ED26 /* jjjj.tar */; };
+		7C7F88181FF872460010E6E5 /* bootstrap2.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C7F88131FF8721D0010E6E5 /* bootstrap2.tar */; };
+		7C7F88191FF872460010E6E5 /* extrainst_ in Resources */ = {isa = PBXBuildFile; fileRef = 7C7F88141FF872200010E6E5 /* extrainst_ */; };
+		7C7F881A1FF872460010E6E5 /* dropbear2 in Resources */ = {isa = PBXBuildFile; fileRef = 7C7F88151FF872240010E6E5 /* dropbear2 */; };
+		7C7F881B1FF872460010E6E5 /* ls in Resources */ = {isa = PBXBuildFile; fileRef = 7C7F88161FF8722C0010E6E5 /* ls */; };
+		7C7F881C1FF872460010E6E5 /* cydo in Resources */ = {isa = PBXBuildFile; fileRef = 7C7F88171FF872440010E6E5 /* cydo */; };
+		7C7F88241FF872680010E6E5 /* amfi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F881F1FF872680010E6E5 /* amfi.m */; };
+		7C7F88251FF872680010E6E5 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F88211FF872680010E6E5 /* patchfinder64.c */; };
+		7C7F88261FF872680010E6E5 /* libjb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7F88221FF872680010E6E5 /* libjb.a */; };
+		7C7F88291FF872BC0010E6E5 /* jailbreakd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F88281FF872BB0010E6E5 /* jailbreakd.m */; };
 		7C968DBE1FECCE20003AF940 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C968DBD1FECCE20003AF940 /* IOKit.framework */; };
 		7CA2D6221FF628B200A92440 /* dropbear in Resources */ = {isa = PBXBuildFile; fileRef = 7CA2D6101FF628A900A92440 /* dropbear */; };
 		7CA2D6241FF628B200A92440 /* dropbear.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CA2D6121FF628AA00A92440 /* dropbear.plist */; };
@@ -24,10 +33,8 @@
 		7CA2D62C1FF628B200A92440 /* bootstrap.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7CA2D61C1FF628B100A92440 /* bootstrap.tar */; };
 		7CA2D63C1FF62A6500A92440 /* kernel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6301FF62A6100A92440 /* kernel.m */; };
 		7CA2D63D1FF62A6500A92440 /* v0rtex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6311FF62A6100A92440 /* v0rtex.m */; };
-		7CA2D63E1FF62A6500A92440 /* amfi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6331FF62A6100A92440 /* amfi.m */; };
 		7CA2D63F1FF62A6500A92440 /* root-rw.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6341FF62A6200A92440 /* root-rw.m */; };
 		7CA2D6401FF62A6500A92440 /* symbols2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6351FF62A6200A92440 /* symbols2.m */; };
-		7CA2D6411FF62A6500A92440 /* patchfinder642.c in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2D6381FF62A6400A92440 /* patchfinder642.c */; };
 		7CA2D6431FF6F9BB00A92440 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46D1FE2B4E800402F32 /* patchfinder64.c */; };
 		7CA2D6441FF6F9C300A92440 /* fun.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8EE46A1FE272CF00402F32 /* fun.c */; };
 		7CA2D6451FF6F9C700A92440 /* fun_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B64C31FE5252F00EDF749 /* fun_objc.m */; };
@@ -65,6 +72,18 @@
 		7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = gnubinpack.tar; sourceTree = "<group>"; };
 		7C66F9891FF7235F0008ED26 /* Limitless.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = Limitless.tar; sourceTree = "<group>"; };
 		7C66F98F1FF73B440008ED26 /* jjjj.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = jjjj.tar; sourceTree = "<group>"; };
+		7C7F88131FF8721D0010E6E5 /* bootstrap2.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = bootstrap2.tar; sourceTree = "<group>"; };
+		7C7F88141FF872200010E6E5 /* extrainst_ */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = extrainst_; sourceTree = "<group>"; };
+		7C7F88151FF872240010E6E5 /* dropbear2 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dropbear2; sourceTree = "<group>"; };
+		7C7F88161FF8722C0010E6E5 /* ls */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ls; sourceTree = "<group>"; };
+		7C7F88171FF872440010E6E5 /* cydo */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cydo; sourceTree = "<group>"; };
+		7C7F881E1FF872680010E6E5 /* patchfinder64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = patchfinder64.h; sourceTree = "<group>"; };
+		7C7F881F1FF872680010E6E5 /* amfi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = amfi.m; sourceTree = "<group>"; };
+		7C7F88201FF872680010E6E5 /* amfi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amfi.h; sourceTree = "<group>"; };
+		7C7F88211FF872680010E6E5 /* patchfinder64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = patchfinder64.c; sourceTree = "<group>"; };
+		7C7F88221FF872680010E6E5 /* libjb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjb.a; sourceTree = "<group>"; };
+		7C7F88231FF872680010E6E5 /* libjb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libjb.h; sourceTree = "<group>"; };
+		7C7F88281FF872BB0010E6E5 /* jailbreakd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jailbreakd.m; sourceTree = "<group>"; };
 		7C968DBD1FECCE20003AF940 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = ../../../../../System/Library/Frameworks/IOKit.framework; sourceTree = "<group>"; };
 		7CA2D6101FF628A900A92440 /* dropbear */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dropbear; sourceTree = "<group>"; };
 		7CA2D6121FF628AA00A92440 /* dropbear.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropbear.plist; sourceTree = "<group>"; };
@@ -155,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7F88261FF872680010E6E5 /* libjb.a in Frameworks */,
 				7C968DBE1FECCE20003AF940 /* IOKit.framework in Frameworks */,
 				7CA2D6281FF628B200A92440 /* libjb.a in Frameworks */,
 			);
@@ -247,6 +267,27 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
+		7C7F881D1FF872680010E6E5 /* the_super_fun_part */ = {
+			isa = PBXGroup;
+			children = (
+				7C7F881E1FF872680010E6E5 /* patchfinder64.h */,
+				7C7F881F1FF872680010E6E5 /* amfi.m */,
+				7C7F88201FF872680010E6E5 /* amfi.h */,
+				7C7F88211FF872680010E6E5 /* patchfinder64.c */,
+				7C7F88221FF872680010E6E5 /* libjb.a */,
+				7C7F88231FF872680010E6E5 /* libjb.h */,
+			);
+			path = the_super_fun_part;
+			sourceTree = "<group>";
+		};
+		7C7F88271FF872BB0010E6E5 /* cydia */ = {
+			isa = PBXGroup;
+			children = (
+				7C7F88281FF872BB0010E6E5 /* jailbreakd.m */,
+			);
+			path = cydia;
+			sourceTree = "<group>";
+		};
 		7C968DBC1FECCE1F003AF940 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +299,11 @@
 		7CA2D5E61FF6270100A92440 /* V0RTEX */ = {
 			isa = PBXGroup;
 			children = (
+				7C7F88131FF8721D0010E6E5 /* bootstrap2.tar */,
+				7C7F88171FF872440010E6E5 /* cydo */,
+				7C7F88151FF872240010E6E5 /* dropbear2 */,
+				7C7F88141FF872200010E6E5 /* extrainst_ */,
+				7C7F88161FF8722C0010E6E5 /* ls */,
 				7CA2D6371FF62A6300A92440 /* amfi.h */,
 				7CA2D6331FF62A6100A92440 /* amfi.m */,
 				7CA2D6361FF62A6300A92440 /* common.h */,
@@ -280,6 +326,8 @@
 				7CA2D61B1FF628AE00A92440 /* launchctl2 */,
 				7CA2D6171FF628AB00A92440 /* libjb.a */,
 				7CA2D6161FF628AB00A92440 /* tar2 */,
+				7C7F88271FF872BB0010E6E5 /* cydia */,
+				7C7F881D1FF872680010E6E5 /* the_super_fun_part */,
 			);
 			name = V0RTEX;
 			sourceTree = "<group>";
@@ -437,15 +485,20 @@
 				7CA2D6271FF628B200A92440 /* tar2 in Resources */,
 				BCEEF6EF1FE88FE6009B9A8B /* test_fsigned in Resources */,
 				7C66F98B1FF723C90008ED26 /* binpack.tar in Resources */,
+				7C7F881A1FF872460010E6E5 /* dropbear2 in Resources */,
 				7CA2D62A1FF628B200A92440 /* bash in Resources */,
 				7CA2D6241FF628B200A92440 /* dropbear.plist in Resources */,
+				7C7F881C1FF872460010E6E5 /* cydo in Resources */,
 				7C66F9901FF73B440008ED26 /* jjjj.tar in Resources */,
 				7C66F98C1FF723CC0008ED26 /* cydia.tar in Resources */,
 				B07A02491FB09B6F0018ACE5 /* LaunchScreen.storyboard in Resources */,
+				7C7F88181FF872460010E6E5 /* bootstrap2.tar in Resources */,
 				B07A02461FB09B6F0018ACE5 /* Assets.xcassets in Resources */,
 				7CA2D62B1FF628B200A92440 /* launchctl2 in Resources */,
 				B07A02441FB09B6F0018ACE5 /* Main.storyboard in Resources */,
+				7C7F881B1FF872460010E6E5 /* ls in Resources */,
 				7CA2D6221FF628B200A92440 /* dropbear in Resources */,
+				7C7F88191FF872460010E6E5 /* extrainst_ in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,20 +509,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7F88241FF872680010E6E5 /* amfi.m in Sources */,
 				7CA2D6451FF6F9C700A92440 /* fun_objc.m in Sources */,
 				7CA2D6441FF6F9C300A92440 /* fun.c in Sources */,
 				7CA2D6431FF6F9BB00A92440 /* patchfinder64.c in Sources */,
-				7CA2D6411FF62A6500A92440 /* patchfinder642.c in Sources */,
 				7CA2D6401FF62A6500A92440 /* symbols2.m in Sources */,
-				7CA2D63E1FF62A6500A92440 /* amfi.m in Sources */,
 				B003EB351FC583CB00C58441 /* kmem.c in Sources */,
 				B0EF11171FCC784B00C1D14E /* symbols.c in Sources */,
 				7CA2D63F1FF62A6500A92440 /* root-rw.m in Sources */,
 				B07A02411FB09B6F0018ACE5 /* ViewController.m in Sources */,
+				7C7F88251FF872680010E6E5 /* patchfinder64.c in Sources */,
 				B04E25091FCD6DB300F09CCE /* kutils.c in Sources */,
 				7CC5252B1FEB5E6D00AD1614 /* asyncJailbreakViewController.m in Sources */,
 				7CC5252E1FEB5E7B00AD1614 /* v0rtexJailbreakViewController.m in Sources */,
 				7CC5251A1FEB5C0600AD1614 /* backwardSegue.m in Sources */,
+				7C7F88291FF872BC0010E6E5 /* jailbreakd.m in Sources */,
 				B07A024C1FB09B6F0018ACE5 /* main.m in Sources */,
 				B003EB381FC5863800C58441 /* find_port.c in Sources */,
 				B07A02541FB09C3D0018ACE5 /* async_wake.c in Sources */,
@@ -631,6 +685,7 @@
 					"$(PROJECT_DIR)/async_wake_ios/the_fun_part",
 					"$(PROJECT_DIR)/C0F3/V0RTEX",
 					"$(PROJECT_DIR)/C0F3",
+					"$(PROJECT_DIR)/C0F3/the_super_fun_part",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -659,6 +714,7 @@
 					"$(PROJECT_DIR)/async_wake_ios/the_fun_part",
 					"$(PROJECT_DIR)/C0F3/V0RTEX",
 					"$(PROJECT_DIR)/C0F3",
+					"$(PROJECT_DIR)/C0F3/the_super_fun_part",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
