@@ -7,7 +7,7 @@
 //
 
 #include <sys/utsname.h>
-#include "symbols.h"
+#include "symbols2.h"
 #include "common.h"
 
 uint64_t OFFSET_ZONE_MAP;
@@ -700,6 +700,28 @@ BOOL init_symbols()
             OFFSET_OSSERIALIZER_SERIALIZE          =0xfffffff00744ddb4;
             OFFSET_ROP_LDR_X0_X0_0x10              =0xfffffff0063a4a84;
             OFFSET_ROOT_MOUNT_V_NODE               =0xfffffff0075b40b0;
+        }
+    }
+//    iPad MINI 2 WIFI
+    else if (strcmp(u.machine, "iPad4,4") == 0) {
+        if ([ver isEqual: @"Version 10.2.1 (Build 14D27)"]) {
+            OFFSET_ZONE_MAP                             =  0xfffffff00755a360;
+            OFFSET_KERNEL_MAP                           =  0xfffffff0075b6058;
+            OFFSET_KERNEL_TASK                          =  0xfffffff0075b6050;
+            OFFSET_REALHOST                             =  0xfffffff00753ca98;
+            OFFSET_BZERO                                =  0xfffffff007082140;
+            OFFSET_BCOPY                                =  0xfffffff007081f80;
+            OFFSET_COPYIN                               =  0xfffffff0071835dc;
+            OFFSET_COPYOUT                              =  0xfffffff0071837e4;
+            OFFSET_IPC_PORT_ALLOC_SPECIAL               =  0xfffffff00709a060;
+            OFFSET_IPC_KOBJECT_SET                      =  0xfffffff0070ad700;
+            OFFSET_IPC_PORT_MAKE_SEND                   =  0xfffffff007099ba4;
+            OFFSET_IOSURFACEROOTUSERCLIENT_VTAB         =  0xfffffff006f336a0;
+            OFFSET_ROP_ADD_X0_X0_0x10                   =  0xfffffff00650dfb0;
+            LOG("Loaded offsets ipad mini 10.2.1");
+        }
+        else{
+            LOG("LOAD OFFSETS DEAR.....");
         }
     }
     
