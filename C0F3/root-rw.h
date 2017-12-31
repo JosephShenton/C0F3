@@ -9,4 +9,4 @@
 #include <mach/mach.h>
 #include <sys/mount.h>
 
-int mount_root(task_t tfp02, uint64_t kslide);
+int mount_root(task_t tfp0, uint64_t kslide);

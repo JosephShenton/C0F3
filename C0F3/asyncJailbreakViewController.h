@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface asyncJailbreakViewController : UIViewController
-
+pid_t get_pid_for_name(char *proc_name, int spawned);
 @end

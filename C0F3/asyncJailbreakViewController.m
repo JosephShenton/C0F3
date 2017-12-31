@@ -47,6 +47,26 @@ typedef CFStringRef (*w)(int e);
 //                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"cydia://"]];
 //
 //            }
+            NSMutableDictionary* md = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.apple.springboard.plist"];
+            [md setObject:[NSNumber numberWithBool:YES] forKey:@"SBShowNonDefaultSystemApps"];
+            [md writeToFile:@"/var/mobile/Library/Preferences/com.apple.springboard.plist" atomically:YES];
+            
+            // NO to Cydia stashing
+            open("/.cydia_no_stash", O_RDWR | O_CREAT);
+            
+            chmod("/private", 0777);
+            chmod("/private/var", 0777);
+            chmod("/private/var/tmp", 0777);
+            chmod("/private/var/mobile", 0777);
+            chmod("/private/var/mobile/Library", 0777);
+            chmod("/private/var/mobile/Library/Caches/", 0777);
+            chmod("/private/var/mobile/Library/Preferences", 0777);
+            
+            
+//            printf("[INFO]: killing backboardd\n");
+//            kill(cfprefsd_pid, SIGKILL);
+            
+            unlink("/System/Library/LaunchDaemons/com.apple.mobile.softwareupdated.plist");
             [self openScheme:@"cydia://"];
             NSLog(@" ♫ KPP never bothered me anyway... ♫ ");
             [self performSegueWithIdentifier:@"async_jailbroken" sender:self];
@@ -71,7 +91,7 @@ typedef CFStringRef (*w)(int e);
            }];
     } else {
         BOOL success = [application openURL:URL];
-        NSLog(@"Open %@: %d",scheme,success);
+        NSLog(@"Open Success %@: %d",scheme,success);
     }
 }
 
