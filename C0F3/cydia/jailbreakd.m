@@ -6,7 +6,7 @@
 //  Copyright © 2017 NOO ONE. NO RIGHTS DESERVED
 //  THANK YOU CHEESECAKEUFO FOR THE IDEA AND CYDO
 
-#import "ViewController.h"
+#import "v0rtexJailbreakViewController.h"
 
 #include "v0rtex.h"
 #include "kernel.h"
