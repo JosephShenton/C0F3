@@ -12,6 +12,7 @@
 		7C66F98C1FF723CC0008ED26 /* cydia.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7CC5252F1FEB7E3300AD1614 /* cydia.tar */; };
 		7C66F98D1FF723CF0008ED26 /* gnubinpack.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */; };
 		7C66F98E1FF724940008ED26 /* bootstrap.dmg in Resources */ = {isa = PBXBuildFile; fileRef = BC71C3741FE60FF0004C7C42 /* bootstrap.dmg */; };
+		7C66F9901FF73B440008ED26 /* jjjj.tar in Resources */ = {isa = PBXBuildFile; fileRef = 7C66F98F1FF73B440008ED26 /* jjjj.tar */; };
 		7C968DBE1FECCE20003AF940 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C968DBD1FECCE20003AF940 /* IOKit.framework */; };
 		7CA2D6221FF628B200A92440 /* dropbear in Resources */ = {isa = PBXBuildFile; fileRef = 7CA2D6101FF628A900A92440 /* dropbear */; };
 		7CA2D6241FF628B200A92440 /* dropbear.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CA2D6121FF628AA00A92440 /* dropbear.plist */; };
@@ -63,6 +64,7 @@
 		7C31C8751FEC581E007CFCED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = gnubinpack.tar; sourceTree = "<group>"; };
 		7C66F9891FF7235F0008ED26 /* Limitless.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = Limitless.tar; sourceTree = "<group>"; };
+		7C66F98F1FF73B440008ED26 /* jjjj.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = jjjj.tar; sourceTree = "<group>"; };
 		7C968DBD1FECCE20003AF940 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = ../../../../../System/Library/Frameworks/IOKit.framework; sourceTree = "<group>"; };
 		7CA2D6101FF628A900A92440 /* dropbear */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dropbear; sourceTree = "<group>"; };
 		7CA2D6121FF628AA00A92440 /* dropbear.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropbear.plist; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				7CC525301FEB7E3400AD1614 /* binpack.tar */,
+				7C66F98F1FF73B440008ED26 /* jjjj.tar */,
 				7CC5252F1FEB7E3300AD1614 /* cydia.tar */,
 				7C31C8761FEC7BB0007CFCED /* gnubinpack.tar */,
 				7C66F9891FF7235F0008ED26 /* Limitless.tar */,
@@ -436,6 +439,7 @@
 				7C66F98B1FF723C90008ED26 /* binpack.tar in Resources */,
 				7CA2D62A1FF628B200A92440 /* bash in Resources */,
 				7CA2D6241FF628B200A92440 /* dropbear.plist in Resources */,
+				7C66F9901FF73B440008ED26 /* jjjj.tar in Resources */,
 				7C66F98C1FF723CC0008ED26 /* cydia.tar in Resources */,
 				B07A02491FB09B6F0018ACE5 /* LaunchScreen.storyboard in Resources */,
 				B07A02461FB09B6F0018ACE5 /* Assets.xcassets in Resources */,
