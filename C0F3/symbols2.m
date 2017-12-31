@@ -7,7 +7,7 @@
 //
 
 #include <sys/utsname.h>
-#include "symbols.h"
+#include "symbols2.h"
 #include "common.h"
 
 uint64_t OFFSET_ZONE_MAP;
