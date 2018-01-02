@@ -27,7 +27,7 @@
             } else if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"10.3.3")) {
                 [self performSegueWithIdentifier:@"v0rtex_found_segue" sender:self];
             } else if (SYSTEM_VERSION_LESS_THAN(@"11.0")) {
-                [self performSegueWithIdentifier:@"unknown_segue" sender:self];
+                [self performSegueWithIdentifier:@"v0rtex_found_segue" sender:self];
             } else if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"11.1.2")) {
                 [self performSegueWithIdentifier:@"async_found_segue" sender:self];
             } else if (SYSTEM_VERSION_GREATER_THAN(@"11.1.2")) {

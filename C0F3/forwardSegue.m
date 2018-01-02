@@ -18,7 +18,7 @@
         newV.center = CGPointMake(preV.center.x + preV.frame.size.width, newV.center.y);
         [window insertSubview:newV aboveSubview:preV];
         
-        [UIView animateWithDuration:0.4
+        [UIView animateWithDuration:0.2
                          animations:^{
                              newV.center = CGPointMake(preV.center.x, newV.center.y);
                              preV.center = CGPointMake(0- preV.center.x, newV.center.y);}
