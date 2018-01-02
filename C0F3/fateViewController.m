@@ -27,7 +27,11 @@
             } else if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"10.3.3")) {
                 [self performSegueWithIdentifier:@"v0rtex_found_segue" sender:self];
             } else if (SYSTEM_VERSION_LESS_THAN(@"11.0")) {
+<<<<<<< HEAD
                 [self performSegueWithIdentifier:@"unknown_segue" sender:self];
+=======
+                [self performSegueWithIdentifier:@"v0rtex_found_segue" sender:self];
+>>>>>>> master
             } else if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"11.1.2")) {
                 [self performSegueWithIdentifier:@"async_found_segue" sender:self];
             } else if (SYSTEM_VERSION_GREATER_THAN(@"11.1.2")) {
@@ -45,13 +49,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

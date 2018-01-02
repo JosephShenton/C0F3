@@ -26,5 +26,9 @@ extern uint64_t OFFSET_IPC_PORT_MAKE_SEND;
 extern uint64_t OFFSET_OSSERIALIZER_SERIALIZE;
 extern uint64_t OFFSET_ROP_LDR_X0_X0_0x10;
 extern uint64_t OFFSET_ROOT_MOUNT_V_NODE;
+extern uint64_t OFFSET_BZERO;
+extern uint64_t OFFSET_BCOPY;
+extern uint64_t OFFSET_IOSURFACEROOTUSERCLIENT_VTAB;
+extern uint64_t OFFSET_ROP_ADD_X0_X0_0x10;
 
 BOOL init_symbols(void);
