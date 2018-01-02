@@ -239,7 +239,7 @@ int execprog_clean(task_t tfp0, uint64_t kslide, uint64_t kern_ucred, const char
     if (!init_symbols()) {
         [self writeText:@"Device not supported."];
         //        [self.sploitButton setHidden:TRUE];
-        [self performSegueWithIdentifier:@"unknown_segue" sender:self];
+        [self performSegueWithIdentifier:@"unknown_segue_2" sender:self];
         return;
     }
     
@@ -507,6 +507,7 @@ int execprog_clean(task_t tfp0, uint64_t kslide, uint64_t kern_ucred, const char
     sleep(3);
     extern void startJBD(void);
     startJBD();
+    [self performSegueWithIdentifier:@"v0rtex_jailbroken" sender:self];
 }
 
 
